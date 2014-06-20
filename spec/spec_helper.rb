@@ -11,7 +11,7 @@ require "launchy"
 
 Capybara.app = Sinatra::Application.new
 
-RSpec.configure do |config|
+# RSpec.configure do |config|
 
 	# config.treat_symbols_as_metadata_keys_with_true_values = true
 	# config.run_all_when_everything_filtered = true
@@ -19,16 +19,16 @@ RSpec.configure do |config|
 
 	# config.order = "random"
 
-	config.before(:suite) do
-		DatabaseCleaner.strategy = :transaction
-		DatabaseCleaner.clean_with(:truncation)
-	end
+	# config.before(:suite) do
+	# 	DatabaseCleaner.strategy = :transaction
+	# 	DatabaseCleaner.clean_with(:truncation)
+	# end
 
-	config.before(:each) do
-		DatabaseCleaner.start
-	end
+	# config.before(:each) do
+	# 	DatabaseCleaner.start
+	# end
 
-	config.after(:each) do
-		DatabaseCleaner.clean
-	end
-end
+	# config.after(:each) do
+	# 	DatabaseCleaner.clean
+	# end
+# end

@@ -11,7 +11,7 @@ gem "rack-flash3"
 
 group :development, :test do
   	gem "rspec"
-  	gem 'launchy'
+  	gem "launchy"
 	gem "capybara"
 	gem "database_cleaner"
 	gem "shotgun"
