@@ -11,12 +11,15 @@
 					<table name="inner_table" width=100% height="40px" border="1px">
 						<tr>
 							<td name="message_frame" align="left" width=60%>
+								<% if session[:signup_message].nil? %>
+									Welcome new user
+								<% else %>
+									<%= session[:signup_message] %>
+								<% end %>
 							</td>						
 							<td name="login_logout_frame" width=20% align="center">
-											
 							</td>
 							<td name="signup_frame_frame" width=20% align="center">
-										
 							</td>
 						</tr>
 					</table>
@@ -28,8 +31,16 @@
 				</td>
 			</tr>
 			<tr>
-				<td name="signup_frame" height="150px">
-					signup
+				<td name="signup_frame" align="center" height="150px">
+					<form action="/new_user" method="post">
+						Please fill in details and click "submit":<br/>
+						Name: <input type="text" name="name" autofocus><br/>
+						Username: <input type="text" name="username"><br/>
+  						Email: <input type="text" name="email"><br/>
+  						Password: <input type="password" name="password"><br/>
+  						Confirm Password: <input type="password" name="password_confirmation"><br/>
+						<input type="submit" id="submit" name="submit" value="Submit">
+					</form>
 				</td>
 			</tr>
 		</table>

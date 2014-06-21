@@ -13,6 +13,8 @@
 							<td name="message_frame" align="left" width=60%>
 								<% if session[:user_id].nil? %>
 									Welcome, please sign up or log in
+								<% else %>
+									Welcome, <%  %>
 								<% end %>
 							</td>						
 							<td name="login_logout_frame" width=20% align="center">
