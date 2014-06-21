@@ -42,8 +42,24 @@ post "/new_user" do
 end
 
 post "/log_in" do
+	session[:login_message] = nil
 	erb :log_in
 end
+
+
+post "/login_user" do
+	email, password = params[:email], params[:password]
+	user = User.authenticate(email, password)
+	if user
+		session[:user_id] = user.id
+		redirect to("/")
+	else
+		session[:login_message] = "Please try again"
+		erb :log_in
+	end
+end
+
+
 
 post "/log_out" do
 	session[:user_id] = nil

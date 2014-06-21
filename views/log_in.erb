@@ -11,6 +11,11 @@
 					<table name="inner_table" width=100% height="40px" border="1px">
 						<tr>
 							<td name="message_frame" align="left" width=60%>
+								<% if session[:login_message].nil? %>
+									Welcome user
+								<% else %>
+									<%= session[:login_message] %>
+								<% end %>								
 							</td>						
 							<td name="login_logout_frame" width=20% align="center">
 											
@@ -28,8 +33,14 @@
 				</td>
 			</tr>
 			<tr>
-				<td name="login_frame" height="150px" align="center">
-					log_in
+				<td name="login_frame" align="center" height="150px">
+					<form action="/login_user" method="post">
+						Please fill in details and click "submit":<br/>
+  						Email: <input type="text" name="email"><br/>
+  						Password: <input type="password" name="password"><br/>
+  						Confirm Password: <input type="password" name="password_confirmation"><br/>
+						<input type="submit" id="submit" name="submit" value="Submit">
+					</form>
 				</td>
 			</tr>
 		</table>
