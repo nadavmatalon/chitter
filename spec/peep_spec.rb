@@ -3,7 +3,7 @@ describe Peep do
 	# context "" do
 
 		it "has a content" do
-			peep = create_peep
+			peep = Peep.create(content: "The thoughts of John Apple")
 			expect(Peep.count).to eq 1
 			expect(peep.content).to eq "The thoughts of John Apple"
 		end
@@ -14,17 +14,9 @@ describe Peep do
 			expect(Peep.count).to eq 0
 		end
 
-		def create_peep (time = "14:00", content = "The thoughts of John Apple")
-			Peep.create(time: time, content: content)
+		it "is created with a time stamp" do
+			peep = Peep.create(content: "The thoughts of John Apple")
+			expect(peep.time).not_to be_nil
 		end
-
-		def create_user (name = "John Apple", username = "JA", email = "ja@gmail.com", 
-						 password = "apples", peeps = [])
-			User.create(name: name, username: username, 
-						email: email, password: password,
-						password_confirmation: password,
-						peeps: peeps)
-		end
-	# end
 end
 
