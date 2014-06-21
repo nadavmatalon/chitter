@@ -18,7 +18,8 @@ set :session_secret, "information"
 
 
 get "/" do
-	session[:user_id] ||= nil
+	session[:user_id] ||= nil	
+	session[:peep_message] = nil if session[:user_id] == nil
 	@peeps = Peep.all
 	erb :index
 end
@@ -65,6 +66,10 @@ post "/add_peep" do
 	if peep.save
 		current_user.peeps << peep
 		current_user.save
+		session[:peep_message] = "Thanks #{current_user.username}, peep uploaded!"
+		redirect to("/")
+	else
+		session[:peep_message] = nil
 		redirect to("/")
 	end
 end
