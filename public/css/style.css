@@ -1,0 +1,38 @@
+body {
+	background-color: white;
+
+}
+
+
+.main_table {
+	width: 100%;
+	border:1px solid black;
+	border-spacing:5px;
+}
+
+
+.inner_table {
+	height: 40px;
+	width: 100%;
+	border:1px solid black;
+	border-spacing:5px;
+}
+
+.page_title {
+	height: 80px;
+}
+
+.middle_frame {
+	height: 150px;
+}
+
+.bottom_frame {
+	height: 300px;
+}
+
+tr, td {
+	vertical-align: center;
+	text-align: center;
+	border:1px solid black;
+	border-spacing:5px;
+}
