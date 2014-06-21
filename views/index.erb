@@ -59,9 +59,9 @@
 				<td name="peep_list" height="300px" valign="top">
 					<% if !@peeps.nil? %>
 						<br/>Peep List:<br/><br/>
-						<% @peeps.each do |peep| %>
-				    		<%= "#{peep.time} " %><br/>
-				    		<%= "\"#{peep.content}\" \| #{ (User.select{|user| user.peeps.include?(peep)}.first.username) }" %><br/><br/>
+						<% for i in (@peeps.count - 1).downto(0) do %>
+				    		<%= "#{@peeps[i].time} " %><br/>
+				    		<%= "\"#{@peeps[i].content}\" \| #{ (User.select{|user| user.peeps.include?(@peeps[i])}.first.username) }" %><br/><br/>
 				  		<% end %>
 				  	<% end %>
 				</td>
