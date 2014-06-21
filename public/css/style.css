@@ -1,6 +1,5 @@
 body {
 	background-color: white;
-
 }
 
 
@@ -22,6 +21,12 @@ body {
 	height: 80px;
 }
 
+td.massage_frame {
+	
+	background-color: blue;
+}
+
+
 .middle_frame {
 	height: 150px;
 }
@@ -30,9 +35,9 @@ body {
 	height: 300px;
 }
 
-tr, td {
+/*tr, td {
 	vertical-align: center;
 	text-align: center;
 	border:1px solid black;
 	border-spacing:5px;
-}
+}*/

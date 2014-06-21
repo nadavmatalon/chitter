@@ -18,7 +18,8 @@ set :session_secret, "information"
 
 
 get "/" do
-  erb :index
+	session[:user_id] ||= nil
+	erb :index
 end
 
 get "/sign_up" do

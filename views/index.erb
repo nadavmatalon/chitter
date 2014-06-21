@@ -5,18 +5,20 @@
 		<link href="/css/style.css" rel="stylesheet">		
 	</head>
 	<body>
-		<table class="main_table">
+		<table name="main_table" width=100% border="1px">
 			<tr>
 				<td>
-					<table class="inner_table">
+					<table name="inner_table" width=100% border="1px">
 						<tr>
-							<td>
-								message
+							<td name="message_frame" align="left" width=60%>
+								<% if session[:user_id].nil? %>
+									Welcome, please sign up or log in
+								<% end %>
 							</td>						
-							<td>
+							<td name="login_logout_frame" width=20% align="center">
 								log_in			
 							</td>
-							<td>
+							<td name="signup_frame_frame" width=20% align="center">
 								sign_up		
 							</td>
 						</tr>
@@ -24,17 +26,17 @@
 				</td>
 			</tr>
 			<tr>
-				<td class="page_title">
+				<td name="page_title" align="center" height="80px">
 					page_title
 				</td>
 			</tr>
 			<tr>
-				<td class="middle_frame">
+				<td name="add_peep_frame" height="150px">
 					add_peep
 				</td>
 			</tr>
 			<tr>
-				<td class="bottom_frame">
+				<td name="peep_list_frame" height="300px">
 					peep_list
 				</td>
 			</tr>
