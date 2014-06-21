@@ -11,7 +11,7 @@ class User
 	property :name, String, required: true, message: "User name cannot be empty"
 	property :username, String, unique: true, required: true, message: "This user name is already taken"
 	property :email, String, unique: true, required: true, message: "This email is already taken"
-	property :password_digest, Text
+	property :password_digest, Text, required: true
 
 	attr_reader :password
 	attr_accessor :password_confirmation
