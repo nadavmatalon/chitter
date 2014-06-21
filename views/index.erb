@@ -54,11 +54,13 @@
 				</td>
 			</tr>
 			<tr>
-				<td name="peep_list_frame" height="300px">
-					<% @peeps.each do |peep| %>
-		    			<%= "#{peep.time} " %><br/>
-		    			<%= "\"#{peep.content}\" \| #{current_user.username}" %><br/>
-		  			<% end %>
+				<td name="peep_list" height="300px">
+					<% if !@peeps.nil? %>
+							<% @peeps.each do |peep| %>
+				    			<%= "#{peep.time} " %><br/>
+				    			<%= "\"#{peep.content}\" \| #{User.first(peep).username}" %><br/>
+				  			<% end %>
+				  	<% end %>
 				</td>
 			</tr>
 		</table>

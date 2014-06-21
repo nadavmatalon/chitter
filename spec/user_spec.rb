@@ -23,7 +23,7 @@ describe User do
 			expect(user.password_digest.chars.count).to eq 60
 		end
 
-		it "must have a name, username email, and password" do
+		it "must have a name, username, email, and password" do
 			User.create
 			expect(User.count).to eq 0
 			User.create(name: "John Apple")
