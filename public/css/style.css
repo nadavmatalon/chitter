@@ -35,6 +35,14 @@ td.massage_frame {
 	height: 300px;
 }
 
+#submit {
+	height: 80px;
+	color: black;
+	font-size: 50px;
+	line-height: 7px;
+	margin-top: 5px;
+}
+
 /*tr, td {
 	vertical-align: center;
 	text-align: center;

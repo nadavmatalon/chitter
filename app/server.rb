@@ -22,10 +22,15 @@ get "/" do
 	erb :index
 end
 
-get "/sign_up" do
-  erb :sign_up
+post "/sign_up" do
+	erb :sign_up
 end
 
-get "/log_in" do
-  erb :log_in
+post "/log_in" do
+	erb :log_in
+end
+
+post "/log_out" do
+	session[:user_id] = nil
+	redirect "/"
 end
