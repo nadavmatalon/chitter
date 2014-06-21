@@ -6,7 +6,7 @@ class Peep
 
 	property :id, Serial
 	property :time, String
-	property :content, Text
+	property :content, Text, required: true
 end
 
 
