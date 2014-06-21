@@ -19,6 +19,7 @@ set :session_secret, "information"
 
 get "/" do
 	session[:user_id] ||= nil
+	@peeps = Peep.all
 	erb :index
 end
 

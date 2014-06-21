@@ -44,14 +44,21 @@
 					page_title
 				</td>
 			</tr>
-			<tr>
-				<td name="add_peep_frame" height="150px">
-					add_peep
+			<tr id="add_peep_window" align="center" height="150px">
+				<td name="add_peep_frame">
+					<form name="add_peep_form" action="/log_in" method="post">
+						Add Peep<br/>
+						<textarea name="peep_text" rows="6" cols="100"></textarea><br/>
+						<input type="submit" id="submit" name="submit" value="Submit">
+					</form>	
 				</td>
 			</tr>
 			<tr>
 				<td name="peep_list_frame" height="300px">
-					peep_list
+					<% @peeps.each do |peep| %>
+		    			<%= "#{peep.time} " %><br/>
+		    			<%= "\"#{peep.content}\" \| #{current_user.username}" %><br/>
+		  			<% end %>
 				</td>
 			</tr>
 		</table>
