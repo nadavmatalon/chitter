@@ -23,17 +23,18 @@ describe User do
 			expect(user.password_digest.chars.count).to eq 60
 		end
 
-		it "must have a name and a username" do
+		it "must have a name, username and email" do
 			User.create
 			expect(User.count).to eq 0
 			User.create(name: "John Apple")
 			expect(User.count).to eq 0
 			User.create(username: "JA")
 			expect(User.count).to eq 0
-			User.create(name: "John Apple", username: "JA")
+			User.create(email: "ja@gmail.com")
+			expect(User.count).to eq 0
+			User.create(name: "John Apple", username: "JA", email: "ja@gmail.com")
 			expect(User.count).to eq 1
 		end
-
 
 
 		def create_peep (time = "14:00", content = "The thoughts of John Apple")

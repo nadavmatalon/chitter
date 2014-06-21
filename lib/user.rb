@@ -10,7 +10,7 @@ class User
 	property :id, Serial
 	property :name, String, required: true, message: "User name cannot be empty"
 	property :username, String, unique: true, required: true, message: "This user name is already taken"
-	property :email, String, unique: true, message: "This email is already taken"
+	property :email, String, unique: true, required: true, message: "This email is already taken"
 	property :password_digest, Text
 
 	attr_reader :password
