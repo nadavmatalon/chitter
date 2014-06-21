@@ -13,20 +13,20 @@ describe "Data_Mapper" do
 		end	
 
 		it "should create new peep and then retrieve it from the database" do
-			expect(Peep.count).to eq(0)
+			expect(Peep.count).to eq 0
 			create_peep
-			expect(Peep.count).to eq(1)
+			expect(Peep.count).to eq 1
 			peep = Peep.first
 			expect(peep.time).to eq("14:00")
 			expect(peep.content).to eq("The thoughts of John Apple")
 		end	
 
 		it "should create new user with peep and then retrieve them from the database" do
-			expect(User.count).to eq(0)
-			expect(Peep.count).to eq(0)
-			User.create(username: "JA", peeps: [create_peep])
-			expect(User.count).to eq(1)
-			expect(Peep.count).to eq(1)
+			expect(User.count).to eq 0
+			expect(Peep.count).to eq 0
+			User.create(name: "John Apple", username: "JA", peeps: [create_peep])
+			expect(User.count).to eq 1
+			expect(Peep.count).to eq 1
 			expect(User.first.username).to eq("JA")
 			expect(User.first.peeps.first.time).to eq("14:00")
 			expect(User.first.peeps.first.content).to eq("The thoughts of John Apple")

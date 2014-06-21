@@ -8,8 +8,8 @@ class User
 	has n, :peeps, through: Resource
 
 	property :id, Serial
-	property :name, String
-	property :username, String, unique: true, message: "This user name is already taken"
+	property :name, String, required: true, message: "User name cannot be empty"
+	property :username, String, unique: true, required: true, message: "This user name is already taken"
 	property :email, String, unique: true, message: "This email is already taken"
 	property :password_digest, Text
 
@@ -28,7 +28,7 @@ class User
 	end
 
 	def self.authenticate(email, password)
-		user = first(:email => email)
+		user = first(email: email)
 		if user && BCrypt::Password.new(user.password_digest) == password
 			user
 		else
