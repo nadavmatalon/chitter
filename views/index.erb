@@ -56,12 +56,13 @@
 				</tr>
 			<% end %>
 			<tr>
-				<td name="peep_list" height="300px">
+				<td name="peep_list" height="300px" valign="top">
 					<% if !@peeps.nil? %>
-							<% @peeps.each do |peep| %>
-				    			<%= "#{peep.time} " %><br/>
-				    			<%= "\"#{peep.content}\" \| #{User.first(peep).username}" %><br/>
-				  			<% end %>
+						<br/>Peep List:<br/><br/>
+						<% @peeps.each do |peep| %>
+				    		<%= "#{peep.time} " %><br/>
+				    		<%= "\"#{peep.content}\" \| #{ (User.select{|user| user.peeps.include?(peep)}.first.username) }" %><br/><br/>
+				  		<% end %>
 				  	<% end %>
 				</td>
 			</tr>

@@ -60,6 +60,15 @@ post "/login_user" do
 	end
 end
 
+post "/add_peep" do
+	peep = Peep.new(content: params[:peep_content])
+	if peep.save
+		current_user.peeps << peep
+		current_user.save
+		redirect to("/")
+	end
+end
+
 post "/log_out" do
 	session[:user_id] = nil
 	redirect "/"
