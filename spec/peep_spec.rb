@@ -20,16 +20,18 @@ end
 
 feature "User" do
 
-	scenario "can access the add peep section while being logged in" do
+	scenario "can see the list of previous peeps even if not logged in" do
+		sign_up
+		fill_in :peep_content, :with => "The thoughts of John Apple"
+		click_button("Submit")
+		click_button("Log Out")
+		expect(page).to have_content("The thoughts of John Apple")
+	end
+
+	scenario "can access the submit peep section while being logged in" do
 		sign_up
 		expect(page).to have_button("Submit")
 		expect(page).to have_field(id="peep_content", type="textarea")
-	end
-
-	scenario "cannot access the add peep section if not being logged in" do
-		visit "/"
-		expect(page).not_to have_button("Submit")
-		expect(page).not_to have_field(id="peep_content", type="textarea")
 	end
 
 	scenario "can post a peep while logged in" do
@@ -39,6 +41,12 @@ feature "User" do
 		expect(page).to have_content("Thanks JA, peep posted!")
 	end
 
+	scenario "cannot post a new peep if not logged in" do
+		visit "/"
+		expect(page).not_to have_button("Submit")
+		expect(page).not_to have_field(id="peep_content", type="textarea")
+	end
+	
 	scenario "cannot post an empty peep" do
 		sign_up
 		click_button("Submit")
