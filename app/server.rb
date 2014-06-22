@@ -40,7 +40,6 @@ post "/new_user" do
 		session[:signup_message] = "Please try again"
 		erb :sign_up
 	end
-
 end
 
 post "/log_in" do
