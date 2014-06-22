@@ -75,7 +75,7 @@ post "/add_peep" do
 	if peep.save
 		current_user.peeps << peep
 		current_user.save
-		session[:peep_message] = "Thanks #{current_user.username}, peep uploaded!"
+		session[:peep_message] = "Thanks #{current_user.username}, peep posted!"
 		redirect "/"
 	else
 		session[:peep_message] = nil
