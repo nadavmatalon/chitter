@@ -58,6 +58,14 @@ feature "User" do
 		expect(page).to have_content("Please try again")
 	end
 
+	scenario "remains logged in even if page is refreshed" do
+		sign_up
+		click_button "Log Out"
+		log_in
+		visit "/"
+		expect(page).to have_content("Welcome, JA")
+	end
+
 	scenario "can go back to home page without signing up" do
 		visit "/"
 		expect(page.status_code).to eq 200

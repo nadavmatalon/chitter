@@ -17,7 +17,6 @@ describe Peep do
 		end
 end
 
-
 feature "User" do
 
 	scenario "can see the list of previous peeps even if not logged in" do
@@ -25,6 +24,15 @@ feature "User" do
 		fill_in :peep_content, :with => "The thoughts of John Apple"
 		click_button("Submit")
 		click_button("Log Out")
+		expect(page).to have_content("The thoughts of John Apple")
+	end
+
+	scenario "can see the list of previous peeps if logged in" do
+		sign_up
+		fill_in :peep_content, :with => "The thoughts of John Apple"
+		click_button("Submit")
+		field = find_field(id="peep_content", type="textarea").value
+		expect(field).to be_empty
 		expect(page).to have_content("The thoughts of John Apple")
 	end
 
@@ -66,3 +74,4 @@ feature "User" do
 	end
 
 end
+
