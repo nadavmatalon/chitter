@@ -30,12 +30,17 @@ post "/sign_up" do
 end
 
 post "/new_user" do
-	@user = User.new(name: params[:name], username: params[:username],
-					 email: params[:email], password: params[:password],
-					 password_confirmation: params[:password_confirmation])
-	if @user.save
-		session[:user_id] = @user.id
-		redirect "/"
+	if (params[:password] != "") && (params[:password_confirmation] != "")
+		@user = User.new(name: params[:name], username: params[:username],
+						 email: params[:email], password: params[:password],
+					 	password_confirmation: params[:password_confirmation])
+		if @user.save
+			session[:user_id] = @user.id
+			redirect "/"
+		else
+			session[:signup_message] = "Please try again"
+			erb :sign_up
+		end
 	else
 		session[:signup_message] = "Please try again"
 		erb :sign_up

@@ -8,9 +8,9 @@ class User
 	has n, :peeps, through: Resource
 
 	property :id, Serial
-	property :name, String, required: true, message: "User name cannot be empty"
-	property :username, String, unique: true, required: true, message: "This user name is already taken"
-	property :email, String, unique: true, required: true, message: "This email is already taken"
+	property :name, String, required: true
+	property :username, String, unique: true, required: true
+	property :email, String, unique: true, required: true
 	property :password_digest, Text, required: true
 
 	attr_reader :password
