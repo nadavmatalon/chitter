@@ -35,7 +35,7 @@ post "/new_user" do
 					 password_confirmation: params[:password_confirmation])
 	if @user.save
 		session[:user_id] = @user.id
-		redirect to("/")
+		redirect "/"
 	else
 		session[:signup_message] = "Please try again"
 		erb :sign_up
@@ -54,7 +54,7 @@ post "/login_user" do
 	user = User.authenticate(email, password)
 	if user
 		session[:user_id] = user.id
-		redirect to("/")
+		redirect "/"
 	else
 		session[:login_message] = "Please try again"
 		erb :log_in
@@ -67,15 +67,19 @@ post "/add_peep" do
 		current_user.peeps << peep
 		current_user.save
 		session[:peep_message] = "Thanks #{current_user.username}, peep uploaded!"
-		redirect to("/")
+		redirect "/"
 	else
 		session[:peep_message] = nil
-		redirect to("/")
+		redirect "/"
 	end
 end
 
 post "/log_out" do
 	session[:user_id] = nil
+	redirect "/"
+end
+
+post "/back" do
 	redirect "/"
 end
 

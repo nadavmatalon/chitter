@@ -12,11 +12,11 @@
 						<tr>
 							<td name="message_frame" align="left" width=60%>
 								<% if session[:user_id].nil? %>
-									Welcome please sign up or log in
+									<p>Welcome, please sign up or log in</p>
 								<% elsif !session[:user_id].nil? && session[:peep_message].nil? %>
-									Welcome <%= current_user.username %>
+									<p>Welcome, <%= current_user.username %></p>
 								<% else %>
-									<%= session[:peep_message] %>
+									<p><%= "#{session[:peep_message]}" %><p>
 								<% end %>
 							</td>						
 							<td name="login_logout_frame" width=20% align="center">
@@ -43,14 +43,14 @@
 			</tr>
 			<tr>
 				<td name="page_title" align="center" height="80px">
-					page_title
+					<h1>MAKERS CHITTER</h1>
 				</td>
 			</tr>
 			<% if !current_user.nil? %>
 				<tr id="add_peep_window" align="center" height="150px">
 					<td name="add_peep_frame">
 						<form name="add_peep_form" action="/add_peep" method="post">
-							Add Peep<br/>
+							<h2>Add Peep</h2>
 							<textarea name="peep_content" rows="6" cols="100"></textarea><br/>
 							<input type="submit" id="submit" name="submit" value="Submit">
 						</form>	
@@ -62,16 +62,29 @@
 					<% if !@peeps.nil? %>
 						<table width=100% border="1px">
 							<tr>
-								<td>
-									<br/>Peep List:<br/><br/>
+								<td align="center">
+									<h2>Peep List</h2>
 								</td>
 							</tr>
 							<tr>
-								<td>	
-									<% for i in (@peeps.count - 1).downto(0) do %>
-							    		<%= "#{@peeps[i].time} " %><br/>
-							    		<%= "\"#{@peeps[i].content}\" \| #{ (User.select{|user| user.peeps.include?(@peeps[i])}.first.username) }" %><br/><br/>
-								  	<% end %>
+								<td>
+									<table width=100% border="1px">
+										<tr>
+											<td width=5%>		
+											</td>
+											<td width=90%>
+												<% for i in (@peeps.count - 1).downto(0) do %>
+													<div class="wide">
+										    		<p><%= "#{@peeps[i].time} " %><br/>
+										    		<%= "\"#{@peeps[i].content}\" \| #{ (User.select{|user| user.peeps.include?(@peeps[i])}.first.username) }" %></p>
+										    		</div>
+										    		<p></p>
+											  	<% end %>
+								  			</td>
+								  			<td width=5%>
+								  			</td>
+								  		</tr>
+								  	</table>
 				  				</td>
 				  			</tr>
 				  		</table>

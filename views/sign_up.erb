@@ -12,14 +12,17 @@
 						<tr>
 							<td name="message_frame" align="left" width=60%>
 								<% if session[:signup_message].nil? %>
-									Welcome new user
+									<p>Welcome, new user</p>
 								<% else %>
-									<%= session[:signup_message] %>
+									<p><%= "#{session[:signup_message]}" %></p>
 								<% end %>
 							</td>						
 							<td name="login_logout_frame" width=20% align="center">
 							</td>
 							<td name="signup_frame_frame" width=20% align="center">
+								<form action="/back" method="post">
+									<input type="submit" id="submit" name="submit" value="Back">
+								</form>
 							</td>
 						</tr>
 					</table>
@@ -27,19 +30,52 @@
 			</tr>
 			<tr>
 				<td name="page_title" align="center" height="80px">
-					page_title
+					<h1>MAKERS CHITTER</h1>
 				</td>
 			</tr>
 			<tr>
 				<td name="signup_frame" align="center" height="150px">
 					<form action="/new_user" method="post">
-						Please fill in details and click "submit":<br/>
-						Name: <input type="text" name="name" autofocus><br/>
-						Username: <input type="text" name="username"><br/>
-  						Email: <input type="text" name="email"><br/>
-  						Password: <input type="password" name="password"><br/>
-  						Confirm Password: <input type="password" name="password_confirmation"><br/>
-						<input type="submit" id="submit" name="submit" value="Submit">
+						<table width=100% border="1px">
+							<tr>
+								<td align="center" width=100%>
+									<h2>User Details</h2>
+								</td>
+							</tr>
+							<tr>
+								<td width=30%>
+									<table width=100% border="1px">
+										<tr align="center">
+											<td width=20%>	
+											</td>
+											<td width=18% align="right">
+												<p>Name:</p>
+												<p>Username:</p>
+			  									<p>Email:</p>
+			  									<p>Password:</p>
+			  									<p>Confirm Password</p>
+			  								</td>
+			  								<td width=2%>		
+			  								</td>
+			  								<td width=29% align="left">
+												<p><input type="text" name="name" style="width: 200px;" autofocus></p>
+												<p><input type="text" name="username" style="width: 200px;"></p>
+				  								<p><input type="text" name="email" style="width: 200px;"></p>
+			  									<p><input type="password" name="password" style="width: 200px;"></p>
+  												<p><input type="password" name="password_confirmation" style="width: 200px;"></p>
+			  								</td>
+			  								<td width=20%>
+			  								</td>
+			  							</tr>
+			  						</table>								
+								</td>
+			  				</tr>
+			  				<tr>
+			  					<td align="center" width=100%>	
+									<input type="submit" id="submit" name="submit" value="Submit">
+								</td>
+							</tr>
+						</table>
 					</form>
 				</td>
 			</tr>
@@ -47,3 +83,16 @@
 	</body>
 </html>
 
+
+
+
+
+<!-- 						<p>User Details</p>
+						<p>Name: <input type="text" name="name" autofocus></p>
+						<p>Username: <input type="text" name="username"></p>
+  						<p>Email: <input type="text" name="email"></p>
+  						<p>Password: <input type="password" name="password"></p>
+  						<p>Confirm Password: <input type="password" name="password_confirmation"></p>
+						<input type="submit" id="submit" name="submit" value="Submit">
+
+ -->
