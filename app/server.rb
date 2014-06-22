@@ -54,11 +54,16 @@ end
 
 
 post "/login_user" do
-	email, password = params[:email], params[:password]
-	user = User.authenticate(email, password)
-	if user
-		session[:user_id] = user.id
-		redirect "/"
+	if (params[:email] != "") && (params[:password] != "")
+		email, password = params[:email], params[:password]
+		user = User.authenticate(email, password)
+		if user
+			session[:user_id] = user.id
+			redirect "/"
+		else
+			session[:login_message] = "Please try again"
+			erb :log_in
+		end
 	else
 		session[:login_message] = "Please try again"
 		erb :log_in
