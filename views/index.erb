@@ -5,14 +5,14 @@
 		<link href="/css/style.css" rel="stylesheet">		
 	</head>
 	<body>
-		<table name="main_table" width=100% height="200px" border="1px">
+		<table name="main_table" width=100% height="200px">
 			<tr>
 				<td>
-					<table name="inner_table" width=100% height="40px" border="1px">
+					<table name="inner_table" width=100% height="40px">
 						<tr>
 							<td name="message_frame" align="left" width=60%>
 								<% if session[:user_id].nil? %>
-									<p>Welcome, please sign up or log in</p>
+									<p>Welcome, please sign-up or log-in to post peeps</p>
 								<% elsif !session[:user_id].nil? && session[:peep_message].nil? %>
 									<p>Welcome, <%= current_user.username %></p>
 								<% else %>
@@ -50,7 +50,7 @@
 				<tr id="add_peep_window" align="center" height="150px">
 					<td name="add_peep_frame">
 						<form name="add_peep_form" action="/add_peep" method="post">
-							<h2>Add Peep</h2>
+							<h2>Peep</h2>
 							<textarea name="peep_content" rows="6" cols="100"></textarea><br/>
 							<input type="submit" id="submit" name="submit" value="Submit">
 						</form>	
@@ -60,7 +60,7 @@
 			<tr>
 				<td name="peep_list" height="300px" valign="top">
 					<% if !@peeps.nil? %>
-						<table width=100% border="1px">
+						<table width=100%>
 							<tr>
 								<td align="center">
 									<h2>Peep List</h2>
@@ -68,7 +68,7 @@
 							</tr>
 							<tr>
 								<td>
-									<table width=100% border="1px">
+									<table width=100%>
 										<tr>
 											<td width=5%>		
 											</td>

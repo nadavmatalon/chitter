@@ -5,10 +5,10 @@
 		<link href="/css/style.css" rel="stylesheet">		
 	</head>
 	<body>
-		<table name="main_table" width=100% border="1px">
+		<table name="main_table" width=100%>
 			<tr>
 				<td>
-					<table name="inner_table" width=100% height="40px" border="1px">
+					<table name="inner_table" width=100% height="40px">
 						<tr>
 							<td name="message_frame" align="left" width=60%>
 								<% if session[:signup_message].nil? %>
@@ -36,7 +36,7 @@
 			<tr>
 				<td name="signup_frame" align="center" height="150px">
 					<form action="/new_user" method="post">
-						<table width=100% border="1px">
+						<table width=100%>
 							<tr>
 								<td align="center" width=100%>
 									<h2>User Details</h2>
@@ -44,7 +44,7 @@
 							</tr>
 							<tr>
 								<td width=30%>
-									<table width=100% border="1px">
+									<table width=100%>
 										<tr align="center">
 											<td width=20%>	
 											</td>
@@ -83,16 +83,3 @@
 	</body>
 </html>
 
-
-
-
-
-<!-- 						<p>User Details</p>
-						<p>Name: <input type="text" name="name" autofocus></p>
-						<p>Username: <input type="text" name="username"></p>
-  						<p>Email: <input type="text" name="email"></p>
-  						<p>Password: <input type="password" name="password"></p>
-  						<p>Confirm Password: <input type="password" name="password_confirmation"></p>
-						<input type="submit" id="submit" name="submit" value="Submit">
-
- -->
