@@ -15,7 +15,7 @@ class TimeStamp
 	end
 
 	def self.now
-		"[#{date_str} #{time_str}]"
+		"#{date_str} #{time_str}"
 	end
 
 end
