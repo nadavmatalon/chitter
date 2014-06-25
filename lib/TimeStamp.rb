@@ -18,6 +18,9 @@ class TimeStamp
 		"#{date_str} #{time_str}"
 	end
 
+	# alt Time.now.strftime("%d/%m/%y %I:%M%p")
+
+
 end
 
 
