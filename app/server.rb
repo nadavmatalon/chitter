@@ -72,9 +72,9 @@ end
 
 post "/add_peep" do
 	peep = Peep.new(content: params[:peep_content])
+	current_user.peeps << peep
+
 	if peep.save
-		current_user.peeps << peep
-		current_user.save
 		session[:peep_message] = "Thanks #{current_user.username}, peep posted!"
 		redirect "/"
 	else
