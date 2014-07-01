@@ -1,20 +1,33 @@
-describe Peep do
+feature "Peep" do
 
-		it "has a content" do
-			peep = Peep.create(content: "The thoughts of John Apple")
-			expect(Peep.count).to eq 1
-			expect(peep.content).to eq "The thoughts of John Apple"
-		end
+	scenario "has content" do
+		sign_up
+		fill_in :peep_content, :with => "The thoughts of John Apple"
+		click_button("Submit")
+		expect(Peep.count).to eq 1
+	end
 
-		it "must have content" do
-			Peep.create
-			expect(Peep.count).to eq 0
-		end
+	scenario "must have content" do
+		Peep.create
+		expect(Peep.count).to eq 0
+	end
 
-		it "is created with a time stamp" do
-			peep = Peep.create(content: "The thoughts of John Apple")
-			expect(peep.time).not_to be_nil
-		end
+	scenario "is created with a time stamp" do
+		peep = Peep.create(content: "The thoughts of John Apple")
+		expect(peep.time).not_to be_nil
+	end
+
+	def sign_up(name = "John Apple", username = "JA", email = "ja@gmail.com", password = "apple", password_confirmation = "apple")
+		visit "/"
+		click_button "Sign Up"
+		expect(page.status_code).to eq 200
+		fill_in :name, :with => name
+		fill_in :username, :with => username
+		fill_in :email, :with => email
+		fill_in :password, :with => password
+		fill_in :password_confirmation, :with => password_confirmation
+		click_button "Submit"
+	end
 end
 
 feature "User" do
