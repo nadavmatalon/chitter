@@ -26,7 +26,6 @@
 		<ul>
 			<li>If you have time you can implement the following:</li>
 			<li>In order to start a conversation as a maker I want to reply to a peep from another maker.</li>
-      		<li>Or / and:</li>
 			<li>Work on the css to make it look good (we all like beautiful things)</li>
 		<ul>
 	</li>
