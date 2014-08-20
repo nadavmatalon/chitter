@@ -21,6 +21,7 @@ set :session_secret, "information"
 get "/" do
 	session[:user_id] ||= nil	
 	session[:peep_message] = nil if session[:user_id] == nil
+	session[:user_id].nil? ? session[:welcome_message] = "Welcome Guest" : session[:welcome_message] = "Welcome #{current_user.username}"
 	@peeps = Peep.all
 	erb :index
 end
