@@ -261,7 +261,7 @@ body {
 	text-align: center;
 }
 
-.sign-up-title, .sign-in-title p {
+.sign-up-title p, .sign-in-title p {
 	font-size: 1.55em;
 	font-weight: 500;
 	font-style: normal;

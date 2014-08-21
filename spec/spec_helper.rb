@@ -5,6 +5,8 @@ require "database_cleaner"
 require "capybara/rspec"
 require "debugger"
 require "launchy"
+Dir[File.expand_path(File.join(File.dirname(__FILE__),'support','*.rb'))].each {|f| require f}
+
 
 Capybara.app = Sinatra::Application.new
 
