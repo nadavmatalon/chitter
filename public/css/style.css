@@ -176,18 +176,19 @@ body {
 	/*border: 1px solid rgb(100, 150, 200);*/
 }
 
-.peep-list-title-container {
-	/*border: 1px solid rgb(100, 150, 200);*/
-	height: 55px;
+.peep-list-title {
+	/*border: 1px solid rgb(150, 150, 150);*/
+	height: 44px;
 	width: 100%;
 	text-align: -webkit-center;
 	text-align: center;
 }
 
-.peep-list-title-container p {
-	font-size: 1.4em;
+.peep-list-title p {
+	font-size: 1.55em;
 	font-weight: 500;
-	margin-top: 13px;
+	font-style: normal;
+	margin-top: 5px;
 }
 
 .peeps-container {

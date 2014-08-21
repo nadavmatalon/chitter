@@ -13,11 +13,9 @@
 <% end %>
 <div class="peep-list-container">
 	<% if !@peeps.nil? %>
-		<% if false %>
-			<div class="peep-list-title-container">
-				<p>Peep List</p>
-			</div>
-		<% end %>
+		<div class="peep-list-title">
+			<p>Peep List</p>
+		</div>
 		<div class="peeps-container">
 			<% for i in (@peeps.count - 1).downto(0) do %>
 				<div class="peep-author-time-container">
@@ -32,7 +30,7 @@
 		  	<% end %>
 		</div>
 	<% else %>
-		<div class="peep-list-title-container">
+		<div class="peep-list-title">
 			<p>No peeps yet</p>
 		</div>
 	<% end %>
