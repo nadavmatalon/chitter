@@ -17,13 +17,13 @@
 			<p>Peep List</p>
 		</div>
 		<div class="peeps-container">
-			<% for i in (@peeps.count - 1).downto(0) do %>
+			<% @peeps.each do |peep| %>
 				<div class="peep-author-time-container">
-	    			<span class="peep-author"><%= "#{(User.select{|user| user.peeps.include?(@peeps[i])}.first.username)}" %></span>
-	    			<span class="peep-time"><%= "#{@peeps[i].time}" %></span><br/>
+	    			<span class="peep-author"><%= "#{peep[:author]}" %></span>
+	    			<span class="peep-time"><%= "#{peep[:time]}" %></span><br/>
 				</div>
 				<div class="peep">
-	    			<p><%= "#{@peeps[i].content}" %></p>
+	    			<p><%= "#{peep[:content]}" %></p>
 	    		</div>
 	    		<div class="peep-spacer">
 	    		</div>

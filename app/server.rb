@@ -22,7 +22,12 @@ get "/" do
 	session[:user_id] ||= nil	
 	session[:user_id].nil? ? session[:welcome_message] = "Welcome Guest" : session[:welcome_message] = "Welcome #{current_user.username}"
 	session[:user_message] = "Please sign-up or sign-in to post peeps" if session[:user_id].nil?
-	@peeps = Peep.all
+	@peeps = []
+	Peep.all.map do |peep|
+		author = User.select{ |user| user.peeps.include?(peep) }.first.username
+		@peeps << { author: author, time: peep.time, content: peep.content }
+	end
+	@peeps.reverse!
 	erb :index
 end
 
