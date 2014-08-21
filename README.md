@@ -48,7 +48,7 @@ The core of <strong>Makers Chitter</strong> was written over a weekend as an exe
 in building an instant messaging web app for students 
 at [Makers Mcademy](http://www.makersacademy.com/).
 
-Later on parts of the app have been re-written (mainly the front-side) to give it
+Later on parts of the app were re-written (mainly the front-side) to give it
 a nicer look.
 
 In a nutshell, the guidlines for building the app were:
@@ -64,7 +64,7 @@ perviously posted.
 
 
 The app was written in [Ruby](https://www.ruby-lang.org/en/) according 
-to [TDD](http://en.wikipedia.org/wiki/Test-driven_development)
+to [TDD](http://en.wikipedia.org/wiki/Test-driven_development).
 
 Tests were generated with [Rspec](http://rspec.info) 
 & [Capybara](https://github.com/jnicklas/capybara).
@@ -99,7 +99,8 @@ However, it should (hopefully) look decent in other browsers as well.
 
 ##  Testing
 
-Tests were written with Rspec (2.14.8) & Capybara (2.3.0)
+Tests were written with [Rspec](http://rspec.info) (2.14.8) & 
+[Capybara](https://github.com/jnicklas/capybara) (2.3.0).
 
 The tests cover both back-end logic and front-end functionality.
 
