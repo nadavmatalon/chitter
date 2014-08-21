@@ -20,20 +20,19 @@ set :session_secret, "information"
 
 get "/" do
 	session[:user_id] ||= nil	
-	session[:peep_message] = nil if session[:user_id] == nil
 	session[:user_id].nil? ? session[:welcome_message] = "Welcome Guest" : session[:welcome_message] = "Welcome #{current_user.username}"
-	session[:user_id].nil? ? session[:user_message] = "Please sign-up or sign-in to post peeps" : session[:user_message] = ""
+	session[:user_message] = "Please sign-up or sign-in to post peeps" if session[:user_id].nil?
 	@peeps = Peep.all
 	erb :index
 end
 
 post "/sign-up" do
-	session[:signup_message] = nil
+	session[:user_message] = nil
 	erb :sign_up
 end
 
 post "/sign-in" do
-	session[:login_message] = nil
+	session[:user_message] = nil
 	erb :log_in
 end
 
@@ -43,8 +42,8 @@ post "/sign-out" do
 end
 
 post "/home" do
+	session[:user_message] = ""
 	redirect "/"
-
 end
 
 post "/new_user" do
@@ -56,11 +55,11 @@ post "/new_user" do
 			session[:user_id] = @user.id
 			redirect "/"
 		else
-			session[:signup_message] = "Please try again"
+			session[:user_message] = "Please try again"
 			erb :sign_up
 		end
 	else
-		session[:signup_message] = "Please try again"
+		session[:user_message] = "Please try again"
 		erb :sign_up
 	end
 end
@@ -71,6 +70,7 @@ post "/login_user" do
 		user = User.authenticate(email, password)
 		if user
 			session[:user_id] = user.id
+			session[:user_message] = ""
 			redirect "/"
 		else
 			session[:login_message] = "Please try again"
@@ -85,12 +85,11 @@ end
 post "/add_peep" do
 	peep = Peep.new(content: params[:peep_content])
 	current_user.peeps << peep
-
 	if peep.save
-		session[:peep_message] = "Thanks #{current_user.username}, peep posted!"
-		redirect "/"
+		session[:user_message] = "Thanks #{current_user.username}, peep posted!"
+		redirect "/"		
 	else
-		session[:peep_message] = nil
+		session[:user_message] = nil
 		redirect "/"
 	end
 end

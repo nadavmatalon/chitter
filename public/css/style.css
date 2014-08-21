@@ -86,6 +86,12 @@ body {
 	padding: 5px 7px 7px 9px;
 	width: 82px;
 	letter-spacing: 0.4px;
+	text-decoration: none;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
 }
 
 .button:hover { 
@@ -123,9 +129,30 @@ body {
 }
 
 .new-peep-container textarea { 
-	rows: 6;
-	cols: 100;
+	width: 750px;
+	height: 70px;
+	border: 2px solid rgb(190, 190, 190);
+	border-radius: 4px;
+	font-size: 1.1em;
+	font-weight: 500;
+	padding-left: 6px;
+	padding-right: 8px;
+	padding-top: 2px;
+	padding-bottom: 3px;
+	resize: none;
+	text-decoration: none;
+	overflow: auto;
+	outline: none;
+  	-webkit-box-shadow: inset 2px 2px 2px 0px #dddddd;
+    -moz-box-shadow: inset 2px 2px 2px 0px #dddddd;
+    box-shadow: inset 2px 2px 2px 0px #dddddd;
+  	line-height: 24px;
+	background-color: rgb(239, 239, 255);
 }
+
+.new-peep-container textarea:focus {
+	border-color: rgb(170, 170, 170);
+} 
 
 .wide-spacer {
 	/*border: 1px solid rgb(100, 150, 200);*/
@@ -202,6 +229,11 @@ body {
 	padding-top: 5px;
 	padding-bottom: 5px;
 	border-radius: 4px;
+	border: 1px solid rgb(190, 190, 190);
+	-webkit-box-shadow: inset 2px 2px 2px 0px #dddddd;
+    -moz-box-shadow: inset 2px 2px 2px 0px #dddddd;
+    box-shadow: inset 2px 2px 2px 0px #dddddd;
+ 
 }
 
 .peep p { 
