@@ -15,26 +15,26 @@
 <table>
 	<tr>
 		<td align="center" width=25% >
-			<a href="https://raw.githubusercontent.com/nadavmatalon/chitter/master/app/public/images/chitter_1.jpg">
-				<img src="app/public/images/chitter_1.jpg" height="105px" />
+			<a href="https://raw.githubusercontent.com/nadavmatalon/chitter/master/public/images/chitter_1.jpg">
+				<img src="public/images/chitter_1.jpg" height="105px" />
 				Visit
 			</a>
 		</td>
 		<td align="center" width=25% >
-			<a href="https://raw.githubusercontent.com/nadavmatalon/chitter/master/app/public/images/chitter_2.jpg">
-				<img src="app/public/images/chitter_2.png" height="105px" />
+			<a href="https://raw.githubusercontent.com/nadavmatalon/chitter/master/public/images/chitter_2.jpg">
+				<img src="public/images/chitter_2.jpg" height="105px" />
 				Sign up
 			</a>
 		</td>
 		<td align="center" width=25% >
-			<a href="https://raw.githubusercontent.com/nadavmatalon/chitter/master/app/public/images/chitter_3.jpg">
-				<img src="app/public/images/chitter_3.png" height="105px" />
+			<a href="https://raw.githubusercontent.com/nadavmatalon/chitter/master/public/images/chitter_3.jpg">
+				<img src="public/images/chitter_3.jpg" height="105px" />
 				Compose peep
 			</a>
 		</td>
 		<td align="center" width=25% >
-			<a href="https://raw.githubusercontent.com/nadavmatalon/chitter/master/app/public/images/chitter_4.jpg">
-				<img src="app/public/images/chitter_4.png" height="105px" />
+			<a href="https://raw.githubusercontent.com/nadavmatalon/chitter/master/public/images/chitter_4.jpg">
+				<img src="public/images/chitter_4.jpg" height="105px" />
 				Post Peep
 			</a>
 		</td>
@@ -43,19 +43,27 @@
 
 
 ##General Description
+ 
+The core of <strong>Makers Chitter</strong> was written over a weekend as an exercise 
+in building an instant messaging web app for students 
+at [Makers Mcademy](http://www.makersacademy.com/).
 
-<strong>Makers Chitter</strong> is an exercise in building an instant messaging web app 
-for students at [Makers Mcademy](http://www.makersacademy.com/).
+Later on parts of the app have been re-written (mainly the front-side) to give it
+a nicer look.
 
-The allows users to visit and view the various 'peeps' perviously posted.
+In a nutshell, the guidlines for building the app were:
 
-In order to post peeps, however, users must register with the app.
+* The app allows users who visit the website to view the various 'peeps' which were 
+perviously posted.
 
-Registered user details and all their peeps are stored in a Postgresql database.
+* In order to post peeps, however, users must register with the app.
 
-In terms of registration criteria, email addresses and usernames must be unique.
+* Details of registered users and all their peeps are stored in a Postgresql database.
 
-The was written in [Ruby](https://www.ruby-lang.org/en/) according 
+* In terms of registration criteria, email addresses and usernames must be unique.
+
+
+The app was written in [Ruby](https://www.ruby-lang.org/en/) according 
 to [TDD](http://en.wikipedia.org/wiki/Test-driven_development)
 
 Tests were generated with [Rspec](http://rspec.info) 
