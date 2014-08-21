@@ -1,85 +1,39 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Makers Chitter</title>
-		<link href="/css/style.css" rel="stylesheet">		
-	</head>
-	<body>
-		<div class="nav-bar">
-			<div class="welcome-message">
-				<p><%= session[:welcome_message] %></p>
-			</div>
-			<div class="user-message">
-				<p><%= session[:user_message] %></p>
-			</div>
-			<div class="nav-bar-buttons">
-				<div class="nav-bar-button">
-					<% if session[:user_id].nil? %>
-						<form action="/sign-up" method="post">
-							<input type="submit" class="button" id="sign-up" value="Sign up">
-						</form>					
-					<% end %>
-				</div>
-				<div class="nav-bar-button">
-					<% if session[:user_id].nil? %>
-						<form action="/sign-in" method="post">
-							<input type="submit" class="button" id="sign-in" value="Sign in">
-						</form>	
-					<% else %>
-						<form action="/sign-out" method="post">
-							<input type="submit" class="button" id="sign-out" value="Sign out">
-						</form>	
-					<% end %>					
-				</div>
-				<div class="nav-bar-button">
-					<form action="/home" method="post">
-						<input type="submit" class="button" id="home" value="Home">
-					</form>									
-				</div>
-			</div>
-		</div>
-		<div class="page-title">
-			<p>Makers Chitter</p>
-		</div>
-		<% if !current_user.nil? %>
-			<div class="new-peep-container">
-				<form name="add_peep_form" action="/add_peep" method="post">
-					<textarea class="new-peep-textbox" id="peep_content" name="peep_content" placeholder="Enter a new peep..."></textarea><br/>
-					<input type="submit" class="button" id="new-peep-button" value="Submit">
-				</form>	
-			</div>
-			<div class="wide-spacer">
-			</div>
-		<% else %>
-			<div class="narrow-spacer">
+<% if !current_user.nil? %>
+	<div class="new-peep-container">
+		<form name="add_peep_form" action="/add_peep" method="post">
+			<textarea class="new-peep-textbox" id="peep_content" name="peep_content" placeholder="Enter a new peep..."></textarea><br/>
+			<input type="submit" class="button" id="new-peep-button" value="Submit">
+		</form>	
+	</div>
+	<div class="wide-spacer">
+	</div>
+<% else %>
+	<div class="narrow-spacer">
+	</div>
+<% end %>
+<div class="peep-list-container">
+	<% if !@peeps.nil? %>
+		<% if false %>
+			<div class="peep-list-title-container">
+				<p>Peep List</p>
 			</div>
 		<% end %>
-		<div class="peep-list-container">
-			<% if !@peeps.nil? %>
-				<% if false %>
-					<div class="peep-list-title-container">
-						<p>Peep List</p>
-					</div>
-				<% end %>
-				<div class="peeps-container">
-					<% for i in (@peeps.count - 1).downto(0) do %>
-						<div class="peep-author-time-container">
-			    			<span class="peep-author"><%= "#{(User.select{|user| user.peeps.include?(@peeps[i])}.first.username)}" %></span>
-			    			<span class="peep-time"><%= "#{@peeps[i].time}" %></span><br/>
-						</div>
-						<div class="peep">
-			    			<p><%= "#{@peeps[i].content}" %></p>
-			    		</div>
-			    		<div class="peep-spacer">
-			    		</div>
-				  	<% end %>
+		<div class="peeps-container">
+			<% for i in (@peeps.count - 1).downto(0) do %>
+				<div class="peep-author-time-container">
+	    			<span class="peep-author"><%= "#{(User.select{|user| user.peeps.include?(@peeps[i])}.first.username)}" %></span>
+	    			<span class="peep-time"><%= "#{@peeps[i].time}" %></span><br/>
 				</div>
-			<% else %>
-				<div class="peep-list-title-container">
-					<p>No peeps yet</p>
-				</div>
-			<% end %>
+				<div class="peep">
+	    			<p><%= "#{@peeps[i].content}" %></p>
+	    		</div>
+	    		<div class="peep-spacer">
+	    		</div>
+		  	<% end %>
 		</div>
-	</body>
-</html>
-
+	<% else %>
+		<div class="peep-list-title-container">
+			<p>No peeps yet</p>
+		</div>
+	<% end %>
+</div>
