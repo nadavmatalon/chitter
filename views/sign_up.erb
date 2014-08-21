@@ -1,85 +1,17 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Makers Chitter</title>
-		<link href="/css/style.css" rel="stylesheet">		
-	</head>
-	<body>
-		<table name="main_table" width=100%>
-			<tr>
-				<td>
-					<table name="inner_table" width=100% height="40px">
-						<tr>
-							<td name="message_frame" align="left" width=60%>
-								<% if session[:signup_message].nil? %>
-									<p>Welcome, new user</p>
-								<% else %>
-									<p><%= "#{session[:signup_message]}" %></p>
-								<% end %>
-							</td>						
-							<td name="login_logout_frame" width=20% align="center">
-							</td>
-							<td name="signup_frame_frame" width=20% align="center">
-								<form action="/back" method="post">
-									<input type="submit" id="submit" name="submit" value="Back">
-								</form>
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-			<tr>
-				<td name="page_title" align="center" height="80px">
-					<h1>MAKERS CHITTER</h1>
-				</td>
-			</tr>
-			<tr>
-				<td name="signup_frame" align="center" height="150px">
-					<form action="/new_user" method="post">
-						<table width=100%>
-							<tr>
-								<td align="center" width=100%>
-									<h2>User Details</h2>
-								</td>
-							</tr>
-							<tr>
-								<td width=30%>
-									<table width=100%>
-										<tr align="center">
-											<td width=20%>	
-											</td>
-											<td width=18% align="right">
-												<p>Name:</p>
-												<p>Username:</p>
-			  									<p>Email:</p>
-			  									<p>Password:</p>
-			  									<p>Confirm Password</p>
-			  								</td>
-			  								<td width=2%>		
-			  								</td>
-			  								<td width=29% align="left">
-												<p><input type="text" name="name" style="width: 200px;" required autofocus></p>
-												<p><input type="text" name="username" style="width: 200px;" required></p>
-				  								<p><input type="text" name="email" style="width: 200px;" required></p>
-			  									<p><input type="password" name="password" style="width: 200px;" required></p>
-  												<p><input type="password" name="password_confirmation" style="width: 200px;" required></p>
-			  								</td>
-			  								<td width=20%>
-			  								</td>
-			  							</tr>
-			  						</table>								
-								</td>
-			  				</tr>
-			  				<tr>
-			  					<td align="center" width=100%>	
-									<input type="submit" id="submit" name="submit" value="Submit">
-								</td>
-							</tr>
-						</table>
-					</form>
-				</td>
-			</tr>
-		</table>
-	</body>
-</html>
+
+<div class="narrow-spacer">
+</div>
+<div class="sign-up-title">
+	<p>Sign up</p>
+</div>
+<div class="sign-up-container">
+	<form action="/sign-up-user" method="post">
+		<input type="text" class="textbox" name="name" placeholder="Name" required autofocus><br/>
+		<input type="text" class="textbox" name="username"  placeholder="Username" required><br/>
+		<input type="text" class="textbox" name="email"  placeholder="Email" required><br/>
+		<input type="password" class="textbox" name="password" placeholder="Password" required><br/>
+		<input type="password" class="textbox" name="password_confirmation"  placeholder="Password Confirmation" required><br/><br/>
+		<input type="submit" class="button" id="submit" name="submit" value="Submit">
+	</form>
+</div>
 

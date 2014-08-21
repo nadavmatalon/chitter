@@ -1,97 +1,37 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>Makers Chitter</title>
-		<link href="/css/style.css" rel="stylesheet">		
-	</head>
-	<body>
-		<table name="main_table" width=100% height="200px">
-			<tr>
-				<td>
-					<table name="inner_table" width=100% height="40px">
-						<tr>
-							<td name="message_frame" align="left" width=60%>
-								<% if session[:user_id].nil? %>
-									<p>Welcome, please sign-up or log-in to post peeps</p>
-								<% elsif !session[:user_id].nil? && session[:peep_message].nil? %>
-									<p>Welcome, <%= current_user.username %></p>
-								<% else %>
-									<p><%= "#{session[:peep_message]}" %><p>
-								<% end %>
-							</td>						
-							<td name="login_logout_frame" width=20% align="center">
-								<% if session[:user_id].nil? %>	
-									<form action="/log_in" method="post">
-										<input type="submit" id="submit" name="submit" value="Log In">
-									</form>
-								<% else %>
-									<form action="/log_out" method="post">
-										<input type="submit" id="submit" name="submit" value="Log Out">
-									</form>								
-								<% end %>		
-							</td>
-							<td name="signup_frame_frame" width=20% align="center">
-								<% if session[:user_id].nil? %>	
-									<form action="/sign_up" method="post">
-										<input type="submit" id="submit" name="submit" value="Sign Up">
-									</form>
-								<% end %>		
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-			<tr>
-				<td name="page_title" align="center" height="80px">
-					<h1>MAKERS CHITTER</h1>
-				</td>
-			</tr>
-			<% if !current_user.nil? %>
-				<tr id="add_peep_window" align="center" height="150px">
-					<td name="add_peep_frame">
-						<form name="add_peep_form" action="/add_peep" method="post">
-							<h2>Peep</h2>
-							<textarea id="peep_content" name="peep_content" rows="6" cols="100"></textarea><br/>
-							<input type="submit" id="submit" name="submit" value="Submit">
-						</form>	
-					</td>
-				</tr>
-			<% end %>
-			<tr>
-				<td name="peep_list" height="300px" valign="top">
-					<% if !@peeps.nil? %>
-						<table width=100%>
-							<tr>
-								<td align="center">
-									<h2>Peep List</h2>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<table width=100%>
-										<tr>
-											<td width=5%>		
-											</td>
-											<td width=90%>
-												<% for i in (@peeps.count - 1).downto(0) do %>
-													<div class="wide">
-										    		<p><%= "#{@peeps[i].time} " %><br/>
-										    		<%= "\"#{@peeps[i].content}\" \| #{ (User.select{|user| user.peeps.include?(@peeps[i])}.first.username) }" %></p>
-										    		</div>
-										    		<p></p>
-											  	<% end %>
-								  			</td>
-								  			<td width=5%>
-								  			</td>
-								  		</tr>
-								  	</table>
-				  				</td>
-				  			</tr>
-				  		</table>
-				  	<% end %>
-				</td>
-			</tr>
-		</table>
-	</body>
-</html>
-
+<% if !current_user.nil? %>
+	<div class="new-peep-container">
+		<form name="add_peep_form" action="/add_peep" method="post">
+			<textarea class="new-peep-textbox" id="peep_content" name="peep_content" placeholder="Enter a new peep..."></textarea><br/>
+			<input type="submit" class="button" id="new-peep-button" value="Submit">
+		</form>	
+	</div>
+	<div class="wide-spacer">
+	</div>
+<% else %>
+	<div class="narrow-spacer">
+	</div>
+<% end %>
+<div class="peep-list-container">
+	<% if !@peeps.nil? %>
+		<div class="peep-list-title">
+			<p>Peep List</p>
+		</div>
+		<div class="peeps-container">
+			<% @peeps.each do |peep| %>
+				<div class="peep-author-time-container">
+	    			<span class="peep-author"><%= "#{peep[:author]}" %></span>
+	    			<span class="peep-time"><%= "#{peep[:time]}" %></span><br/>
+				</div>
+				<div class="peep">
+	    			<p><%= "#{peep[:content]}" %></p>
+	    		</div>
+	    		<div class="peep-spacer">
+	    		</div>
+		  	<% end %>
+		</div>
+	<% else %>
+		<div class="peep-list-title">
+			<p>No peeps yet</p>
+		</div>
+	<% end %>
+</div>

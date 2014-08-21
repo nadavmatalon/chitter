@@ -7,11 +7,11 @@ class TimeStamp
 		day = Date.today.day
 		month = MONTHS[Date.today.month]
 		year = Date.today.year
-		"#{day} #{month} #{year}"
+		"#{day} #{month} #{year} | "
 	end
 
 	def self.time_str
-		Time.now.strftime("%I:%M%p")
+		Time.now.strftime("%-l:%M %p")
 	end
 
 	def self.now
