@@ -22,14 +22,32 @@ get "/" do
 	session[:user_id] ||= nil	
 	session[:peep_message] = nil if session[:user_id] == nil
 	session[:user_id].nil? ? session[:welcome_message] = "Welcome Guest" : session[:welcome_message] = "Welcome #{current_user.username}"
+	session[:user_id].nil? ? session[:user_message] = "Please sign-up or sign-in to post peeps" : session[:user_message] = ""
 	@peeps = Peep.all
 	erb :index
 end
 
-post "/sign_up" do
+post "/sign-up" do
 	session[:signup_message] = nil
 	erb :sign_up
 end
+
+post "/sign-in" do
+	session[:login_message] = nil
+	erb :log_in
+end
+
+post "/sign-out" do
+	session[:user_id] = nil
+	redirect "/"
+end
+
+post "/home" do
+	redirect "/"
+
+end
+
+
 
 post "/new_user" do
 	if (params[:password] != "") && (params[:password_confirmation] != "")
@@ -48,12 +66,6 @@ post "/new_user" do
 		erb :sign_up
 	end
 end
-
-post "/log_in" do
-	session[:login_message] = nil
-	erb :log_in
-end
-
 
 post "/login_user" do
 	if (params[:email] != "") && (params[:password] != "")

@@ -10,122 +10,64 @@
 				<p><%= session[:welcome_message] %></p>
 			</div>
 			<div class="user-message">
-				
-
-
+				<p><%= session[:user_message] %></p>
 			</div>
 			<div class="nav-bar-buttons">
 				<div class="nav-bar-button">
-					
+					<% if session[:user_id].nil? %>
+						<form action="/sign-up" method="post">
+							<input type="submit" class="button" id="sign-up" value="Sign up">
+						</form>					
+					<% end %>
 				</div>
 				<div class="nav-bar-button">
-					
+					<% if session[:user_id].nil? %>
+						<form action="/sign-in" method="post">
+							<input type="submit" class="button" id="sign-in" value="Sign in">
+						</form>	
+					<% else %>
+						<form action="/sign-out" method="post">
+							<input type="submit" class="button" id="sign-out" value="Sign out">
+						</form>	
+					<% end %>					
 				</div>
 				<div class="nav-bar-button">
-					
+					<form action="/home" method="post">
+						<input type="submit" class="button" id="home" value="Home">
+					</form>									
 				</div>
 			</div>
 		</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-		<table name="main_table" width=100% height="200px">
-			<tr>
-				<td>
-					<table name="inner_table" width=100% height="40px">
-						<tr>
-							<td name="message_frame" align="left" width=60%>
-								<% if session[:user_id].nil? %>
-									<p>Welcome, please sign-up or log-in to post peeps</p>
-								<% elsif !session[:user_id].nil? && session[:peep_message].nil? %>
-									<p>Welcome, <%= current_user.username %></p>
-								<% else %>
-									<p><%= "#{session[:peep_message]}" %><p>
-								<% end %>
-							</td>						
-							<td name="login_logout_frame" width=20% align="center">
-								<% if session[:user_id].nil? %>	
-									<form action="/log_in" method="post">
-										<input type="submit" id="submit" name="submit" value="Log In">
-									</form>
-								<% else %>
-									<form action="/log_out" method="post">
-										<input type="submit" id="submit" name="submit" value="Log Out">
-									</form>								
-								<% end %>		
-							</td>
-							<td name="signup_frame_frame" width=20% align="center">
-								<% if session[:user_id].nil? %>	
-									<form action="/sign_up" method="post">
-										<input type="submit" id="submit" name="submit" value="Sign Up">
-									</form>
-								<% end %>		
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-			<tr>
-				<td name="page_title" align="center" height="80px">
-					<h1>MAKERS CHITTER</h1>
-				</td>
-			</tr>
-			<% if !current_user.nil? %>
-				<tr id="add_peep_window" align="center" height="150px">
-					<td name="add_peep_frame">
-						<form name="add_peep_form" action="/add_peep" method="post">
-							<h2>Peep</h2>
-							<textarea id="peep_content" name="peep_content" rows="6" cols="100"></textarea><br/>
-							<input type="submit" id="submit" name="submit" value="Submit">
-						</form>	
-					</td>
-				</tr>
+		<div class="page-title">
+			<p>Makers Chitter</p>
+		</div>
+		<% if !current_user.nil? %>
+			<div class="new-peep-container">
+				<form name="add_peep_form" action="/add_peep" method="post">
+					<textarea class="new-peep-textbox" id="peep_content" name="peep_content" rows="6" cols="100"></textarea><br/>
+					<input type="submit" class="button" id="new-peep-button" value="Submit">
+				</form>	
+			</div>
+			<div class="wide-spacer">
+			</div>
+		<% else %>
+			<div class="narrow-spacer">
+			</div>
+		<% end %>
+		<div class="peep-list-container">
+			<% if !@peeps.nil? %>
+				<p>Peep List</p>
+				<% for i in (@peeps.count - 1).downto(0) do %>
+					<div class="wide">
+		    			<p><%= "#{@peeps[i].time} " %><br/>
+		    			<%= "\"#{@peeps[i].content}\" \| #{ (User.select{|user| user.peeps.include?(@peeps[i])}.first.username) }" %></p>
+		    		</div>
+		    		<p></p>
+			  	<% end %>
+			<% else %>
+				<p>No peeps yet</p>
 			<% end %>
-			<tr>
-				<td name="peep_list" height="300px" valign="top">
-					<% if !@peeps.nil? %>
-						<table width=100%>
-							<tr>
-								<td align="center">
-									<h2>Peep List</h2>
-								</td>
-							</tr>
-							<tr>
-								<td>
-									<table width=100%>
-										<tr>
-											<td width=5%>		
-											</td>
-											<td width=90%>
-												<% for i in (@peeps.count - 1).downto(0) do %>
-													<div class="wide">
-										    		<p><%= "#{@peeps[i].time} " %><br/>
-										    		<%= "\"#{@peeps[i].content}\" \| #{ (User.select{|user| user.peeps.include?(@peeps[i])}.first.username) }" %></p>
-										    		</div>
-										    		<p></p>
-											  	<% end %>
-								  			</td>
-								  			<td width=5%>
-								  			</td>
-								  		</tr>
-								  	</table>
-				  				</td>
-				  			</tr>
-				  		</table>
-				  	<% end %>
-				</td>
-			</tr>
-		</table>
+		</div>
 	</body>
 </html>
 
