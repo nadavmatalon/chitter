@@ -1,7 +1,7 @@
 <% if !current_user.nil? %>
 	<div class="new-peep-container">
 		<form name="add_peep_form" action="/add_peep" method="post">
-			<textarea class="new-peep-textbox" id="peep_content" name="peep_content" placeholder="Enter a new peep..."></textarea><br/>
+			<textarea class="new-peep-textbox" id="peep_content" name="peep_content" placeholder="Enter a new peep..." autofocus></textarea><br/>
 			<input type="submit" class="button" id="new-peep-button" value="Submit">
 		</form>	
 	</div>
