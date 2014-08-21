@@ -47,8 +47,6 @@ post "/home" do
 
 end
 
-
-
 post "/new_user" do
 	if (params[:password] != "") && (params[:password_confirmation] != "")
 		@user = User.new(name: params[:name], username: params[:username],

@@ -1,7 +1,7 @@
 body {
 	width: 100%;
 	margin: 0px;
-	font-family: Arial;
+	font-family: "Skolar Bold","Segoe UI","Roboto Slab","Droid Serif",AvenirNext,"Avenir",Georgia,"Times New Roman",Times,serif;
 }
 
 .nav-bar {
@@ -107,10 +107,12 @@ body {
 
 .page-title p {
 	font-size: 2.3em;
+	font-weight: 500;
+	font-style: normal;
 }
 
 .new-peep-container {
-	border: 1px solid rgb(100, 150, 200);
+	/*border: 1px solid rgb(100, 150, 200);*/
 	position: fixed;
 	background-color: white;
 	width: 100%;
@@ -125,31 +127,96 @@ body {
 	cols: 100;
 }
 
-.peep-list-container {
-	border: 1px solid rgb(100, 150, 200);
-	background-color: orange;
-	/*padding-top: 320px;*/
-}
-
 .wide-spacer {
-	border: 1px solid rgb(100, 150, 200);
+	/*border: 1px solid rgb(100, 150, 200);*/
 	background-color: white;
-	height: 300px;
+	height: 305px;
 	width: 100%;
 }
 
 .narrow-spacer {
-	border: 1px solid rgb(100, 150, 200);
+	/*border: 1px solid rgb(100, 150, 200);*/
 	background-color: white;
-	height: 160px;
+	height: 165px;
 	width: 100%;
 }
 
-.wide { 
-	min-width: 100%; 
+.peep-list-container {
+	/*border: 1px solid rgb(100, 150, 200);*/
+}
+
+.peep-list-title-container {
+	/*border: 1px solid rgb(100, 150, 200);*/
+	height: 55px;
+	width: 100%;
+	text-align: -webkit-center;
+	text-align: center;
+}
+
+.peep-list-title-container p {
+	font-size: 1.4em;
+	font-weight: 500;
+	margin-top: 13px;
+}
+
+.peeps-container {
+	min-height: 500px;
+	min-width: 750px; 
+	text-align: -webkit-center;
+	text-align: center;
+}
+
+.peep-author-time-container {
+	height: 30px;
+	text-align: left;
+	text-align: -webkit-left;
+	width: 750px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.peep-author {
+	font-size: 1.25em;
+	padding-left: 4px;
+	font-family: "Skolar Bold","Segoe UI","Roboto Slab","Droid Serif",AvenirNext,"Avenir",Georgia,"Times New Roman",Times,serif;
+	font-weight: 600;
+	font-style: normal;
+}
+
+.peep-time {
+	font-size: 1.0em;
+	padding-left: 8px;
+	vertical-align: 2px;
+	color: #41b7d8;
+}
+
+.peep { 
 	display: inline-block; 
 	background-color: #F0F0F0; 
+	width: 750px;
+	min-height: 59px;
+	text-align: justify;
+	text-align: -webkit-justify;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	border-radius: 4px;
 }
+
+.peep p { 
+	margin-top: 5px;
+	margin-bottom: 5px;
+	font-size: 1.1em;
+	font-weight: 400;
+	font-style: normal;
+}
+.peep-spacer { 
+	width: 100%;
+	height: 20px;
+}
+
+
 
 
 

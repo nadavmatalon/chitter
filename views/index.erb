@@ -56,16 +56,28 @@
 		<% end %>
 		<div class="peep-list-container">
 			<% if !@peeps.nil? %>
-				<p>Peep List</p>
-				<% for i in (@peeps.count - 1).downto(0) do %>
-					<div class="wide">
-		    			<p><%= "#{@peeps[i].time} " %><br/>
-		    			<%= "\"#{@peeps[i].content}\" \| #{ (User.select{|user| user.peeps.include?(@peeps[i])}.first.username) }" %></p>
-		    		</div>
-		    		<p></p>
-			  	<% end %>
+				<% if false %>
+					<div class="peep-list-title-container">
+						<p>Peep List</p>
+					</div>
+				<% end %>
+				<div class="peeps-container">
+					<% for i in (@peeps.count - 1).downto(0) do %>
+						<div class="peep-author-time-container">
+			    			<span class="peep-author"><%= "#{(User.select{|user| user.peeps.include?(@peeps[i])}.first.username)}" %></span>
+			    			<span class="peep-time"><%= "#{@peeps[i].time}" %></span><br/>
+						</div>
+						<div class="peep">
+			    			<p><%= "#{@peeps[i].content}" %></p>
+			    		</div>
+			    		<div class="peep-spacer">
+			    		</div>
+				  	<% end %>
+				</div>
 			<% else %>
-				<p>No peeps yet</p>
+				<div class="peep-list-title-container">
+					<p>No peeps yet</p>
+				</div>
 			<% end %>
 		</div>
 	</body>
