@@ -29,13 +29,13 @@
 		<td align="center" width=25% >
 			<a href="https://raw.githubusercontent.com/nadavmatalon/chitter/master/public/images/chitter_3.jpg">
 				<img src="public/images/chitter_3.jpg" height="105px" />
-				Compose peep
+				Compose a peep
 			</a>
 		</td>
 		<td align="center" width=25% >
 			<a href="https://raw.githubusercontent.com/nadavmatalon/chitter/master/public/images/chitter_4.jpg">
 				<img src="public/images/chitter_4.jpg" height="105px" />
-				Post Peep
+				And post it
 			</a>
 		</td>
 	</tr>
