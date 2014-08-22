@@ -95,7 +95,7 @@ As I'm using Heroku's free hosting service, the app may take a bit of time to up
 * __Mozilla Firefox__ (31.0)
 * __Apple Safari__ (7.0.5)
 
-If the app doesn't look right in __Safari__ (content is showing but without any css styling), 
+In case the app doesn't look right in __Safari__ (content is showing but without any css styling), 
 this may be due to the security settings. To solve this, under 'Perferences > privacy settings', 
 check if 'Block cookies' is set to 'Always' and 'From third parties and 
 advertisers'(the default). In addition, click the 'Remove all website data' to clear 
