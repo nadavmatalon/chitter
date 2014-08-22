@@ -4,6 +4,8 @@
 		<title>Makers Chitter</title>
 		<link href="/css/reset.css" rel="stylesheet">
 		<link href="/css/style.css" rel="stylesheet">
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<script type="text/javascript" src='/javascript/jquery-2.1.1.min.js' charset="utf-8"></script>
 	</head>
 	<body>
 		<div class="nav-bar">
@@ -107,7 +109,22 @@
 		    </div>
 		</div>
 	</body>
-	<script src='/javascript/jquery-2.1.1.min.js'></script>
+	<script type="text/javascript">
+		$(document).ready( function(){
+			$(".cb-enable").click(function(){
+				var parent = $(this).parents('.switch');
+				$('.cb-disable',parent).removeClass('selected');
+				$(this).addClass('selected');
+				$('.checkbox',parent).attr('checked', true);
+			});
+			$(".cb-disable").click(function(){
+				var parent = $(this).parents('.switch');
+				$('.cb-enable',parent).removeClass('selected');
+				$(this).addClass('selected');
+				$('.checkbox',parent).attr('checked', false);
+			});
+		});
+	</script>
 </html>
 
 
