@@ -19,16 +19,16 @@ set :session_secret, "information"
 
 
 get "/" do
-	session[:selector] ||= "date"
 	session[:user_id] ||= nil	
+	session[:selector] ||= "date"
 	session[:user_id].nil? ? session[:welcome_message] = "Welcome Guest" : session[:welcome_message] = "Welcome #{current_user.username}"
 	session[:user_message] = "Please sign-up or sign-in to post peeps" if session[:user_id].nil?
 	@peeps = []
 	Peep.all.map do |peep|
 		author = User.select{ |user| user.peeps.include?(peep) }.first.username
-		@peeps << { author: author, time: peep.time, content: peep.content }
+		@peeps << { id: -peep.id, author: author, time: peep.time, content: peep.content }
 	end
-	session[:selector] == "date" ? @peeps.reverse! : @peeps.sort_by! { |peep| peep[:author] }
+	session[:selector] == "date" ? @peeps.reverse! : @peeps.sort_by! {|peep| [peep[:author], peep[:id]] }
 	erb :index
 end
 

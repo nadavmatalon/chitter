@@ -13,13 +13,15 @@
 <% end %>
 
 <div class="selector">
-	<p class="field switch">
-		<form action="/peep-selector" method="post">
-			<input type="submit" class="button" id="date" name="selector" value="Date">
-			<input type="submit" class="button" id="name" name="selector" value="Name">
-
-		</form>
-	</p>
+	<form action="/peep-selector" method="post">
+		<% if session[:selector] == "date" %>
+			<input type="submit" class="button-selected cb-enable selected" id="selector-date" name="selector" value="Date" disabled>
+			<input type="submit" class="button-not-selected cb-disable" id="selector-name" name="selector" value="Name">
+		<% else %>
+			<input type="submit" class="button-not-selected cb-disable" id="selector-date" name="selector" value="Date">
+			<input type="submit" class="button-selected cb-enable selected" id="selector-name" name="selector" value="Name" disabled>
+		<% end %>
+	</form>
 </div>
 
 
