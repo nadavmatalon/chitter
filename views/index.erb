@@ -14,8 +14,11 @@
 
 <div class="selector">
 	<p class="field switch">
-		<label for="radio1" class="cb-enable selected"><span>Date</span></label>
-		<label for="radio2" class="cb-disable"><span>Name</span></label>
+		<form action="/peep-selector" method="post">
+			<input type="submit" class="button" id="date" name="selector" value="Date">
+			<input type="submit" class="button" id="name" name="selector" value="Name">
+
+		</form>
 	</p>
 </div>
 

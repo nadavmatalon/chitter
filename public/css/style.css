@@ -135,8 +135,6 @@ body {
 	margin-bottom: 28px;
 }
 
-
-
 .cb-enable, .cb-disable, .cb-enable span, .cb-disable span { 
 	background: url(/images/switch.gif) repeat-x;
 	display: block;

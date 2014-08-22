@@ -19,6 +19,7 @@ set :session_secret, "information"
 
 
 get "/" do
+	session[:selector] ||= "date"
 	session[:user_id] ||= nil	
 	session[:user_id].nil? ? session[:welcome_message] = "Welcome Guest" : session[:welcome_message] = "Welcome #{current_user.username}"
 	session[:user_message] = "Please sign-up or sign-in to post peeps" if session[:user_id].nil?
@@ -27,16 +28,13 @@ get "/" do
 		author = User.select{ |user| user.peeps.include?(peep) }.first.username
 		@peeps << { author: author, time: peep.time, content: peep.content }
 	end
-
-	@peeps.reverse!
-
-	# @peeps.sort_by! { |peep| peep[:author]}
-
-
-
-
-
+	session[:selector] == "date" ? @peeps.reverse! : @peeps.sort_by! { |peep| peep[:author] }
 	erb :index
+end
+
+post "/peep-selector" do
+	session[:selector] = params[:selector].downcase
+	redirect "/"
 end
 
 post "/home" do
