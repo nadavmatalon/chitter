@@ -97,9 +97,9 @@ As I'm using Heroku's free hosting service, the app may take a bit of time to up
 
 In case the app doesn't look right in __Safari__ (content is showing but without any css styling), 
 this may be due to the security settings. To solve this, under 'Perferences > privacy settings', 
-check if 'Block cookies' is set to 'Always' and 'From third parties and 
-advertisers'(the default). In addition, click the 'Remove all website data' to clear 
-the session cookies. After that, it should work as it intended.
+check if 'Block cookies' is set to 'Always' and if it does change it to 'from third parties 
+and advertisers' (that's the default). In addition, click the 'Remove all website data' 
+to clear the session cookies. After that, it should work as it intended.
 
 
 ##  Testing
