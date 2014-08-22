@@ -54,6 +54,7 @@ end
 
 post "/sign-out" do
 	session[:user_id] = nil
+	session[:selector] = "date"
 	redirect "/"
 end
 
