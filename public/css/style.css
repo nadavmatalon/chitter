@@ -122,11 +122,9 @@ body {
 	font-style: normal;
 }
 
-
-.selector {
-	/*background-color: rgb(240, 240, 240);*/
-	width: 208px;
-	height: 31px;
+.switch-container {
+	width: 202px;
+	height: 36px;
 	margin-top: 25px;
 	margin-right: auto;
 	margin-left: auto;
@@ -135,76 +133,53 @@ body {
 	margin-bottom: 28px;
 }
 
-.cb-enable, .cb-disable, .cb-enable input, .cb-disable input { 
-	background: url(/images/switch.gif) repeat-x;
+.switch {
+	background-repeat: no-repeat !important; 
 	display: block;
+	border: none;
 	float: left;
-	width: 118px;
-	height: 30px;
-}
-
-
-.cb-enable input, .cb-disable input { 
-	 line-height: 30px; 
-	 display: block; 
-	 background-repeat: no-repeat; 
-	 font-weight: 600; 
-}
-
-.cb-enable input { 
-	background-position: left -90px; 
-	/*padding: 0 10px; */
-}
-
-.cb-disable input { 
-	background-position: right -180px;
-	padding: 0 0px;
-	font-weight: 600; 
-}
-
-.cb-disable.selected { 
-	background-position: 0 -30px; 
-}
-
-.cb-disable.selected input { 
-	background-position: right -210px; 
-	color: #fff; 
-}
-
-.cb-enable.selected { 
-	background-position: 0 -60px; 
-}
-
-.cb-enable.selected input { 
-	background-position: left -150px;
-	color: #fff;
-}
-
-#selector-date {
-	width: 107px;
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
-	vertical-align: 3px;
-	font-size: 0.9em;
-	letter-spacing: 0.4px;
-    overflow: auto;
-    outline: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-}
-
-#selector-name {
 	width: 101px;
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
-	margin-left: -2px;
+	height: 36px;
 	vertical-align: 3px;
-	font-size: 0.9em;
-	letter-spacing: 0.4px;
-    overflow: auto;
+	font-size: 0.95em;
+  	overflow: auto;
     outline: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
+}
+
+.switch_on {
+	color: white !important;
+}
+
+.switch_off {
+	color: black !important;
+}
+
+.switch_one_on {
+	background: url(/images/switch_one_on.jpg);
+	letter-spacing: 0.6px;
+  }
+
+.switch_one_off {
+	background: url(/images/switch_one_off.jpg);
+}
+
+.switch_two_on {
+	background: url(/images/switch_two_on.jpg);
+	margin-left: -1px;
+	letter-spacing: 0.5px;
+  }
+
+
+.switch_two_off {
+	background: url(/images/switch_two_off.jpg);
+	margin-left: -1px;
+	letter-spacing: 0.5px;
+  }
+
+.switch_one_off:hover, .switch_two_off:hover {
+	color: rgb(210, 210, 210);
 }
 
 .new-peep-container {
@@ -239,7 +214,6 @@ body {
   	line-height: 24px;
 	background-color: rgb(239, 239, 255);
 	font-family: "Skolar Bold","Segoe UI","Roboto Slab","Droid Serif",AvenirNext,"Avenir",Georgia,"Times New Roman",Times,serif;
-
 }
 
 .new-peep-container textarea:focus {
@@ -480,27 +454,27 @@ body {
 }
 
 .footer-image-html5 {
-  margin-top: 5px;
-  width: 39px;
-  height: 36px;
-  margin-left: 4px;
-  margin-right: 4px;
+	margin-top: 5px;
+	width: 39px;
+	height: 36px;
+	margin-left: 4px;
+	margin-right: 4px;
 }
 
 .footer-image-css3 {
-  margin-top: 5px;
-  width: 39px;
-  height: 36px;
-  margin-left: 4px;
-  margin-right: 4px;
+	margin-top: 5px;
+	width: 39px;
+	height: 36px;
+	margin-left: 4px;
+	margin-right: 4px;
 }
 
 .footer-image-sinatra {
-  margin-top: 4px;
-  width: 40px;
-  height: 40px;
-  margin-left: 4px;
-  margin-right: 4px;
+	margin-top: 4px;
+	width: 40px;
+	height: 40px;
+	margin-left: 4px;
+	margin-right: 4px;
 }
 
 .footer-image-postgresql {
@@ -512,41 +486,26 @@ body {
 }
 
 .footer-image-heroku {
-  margin-top: 5px;
-  width: 38px;
-  height: 37px;
-  margin-left: 4px;
-  margin-right: 4px;
+	margin-top: 5px;
+	width: 38px;
+	height: 37px;
+	margin-left: 4px;
+	margin-right: 4px;
 }
 
 .footer-image-github {
-  margin-top: 6px;
-  width: 37px;
-  height: 35px;
-  margin-left: 4px;
-  margin-right: 4px;
+	margin-top: 6px;
+	width: 37px;
+	height: 35px;
+	margin-left: 4px;
+	margin-right: 4px;
 }
 
 .footer-image-nmqr {
-  margin-top: 8px;
-  width: 34px;
-  height: 34px;
-  margin-left: -25px;
-  margin-right: 0px;
+	margin-top: 8px;
+	width: 34px;
+	height: 34px;
+	margin-left: -25px;
+	margin-right: 0px;
 }
-
-.button-selected {
-	color: white !important;
-}
-
-.button-not-selected {
-	background-color: rgb(220, 220, 220) !important;
-}
-
-.button-not-selected:hover {
-	cursor: pointer; 
-}
-
-
-
 
