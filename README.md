@@ -49,7 +49,8 @@ in building an instant messaging web app for students
 at [Makers Mcademy](http://www.makersacademy.com/).
 
 Later on parts of the app were re-written (mainly the front-side) to give it
-a nicer look.
+a nicer look and a toggle button was added which enables to display peep list 
+either according to the date of posting or the author's name.
 
 In a nutshell, the guidlines for building the app were:
 
