@@ -106,12 +106,14 @@ body {
 
 .page-title {
 	width: 100%;
-	height: 109px;
-	margin-bottom: 30px;
+	height: 62px;
+	margin-bottom: 0px;
 	text-align: center;
 	position: fixed;
-	margin-top: 51px;
+	margin-top: 50px;
 	background-color: white;
+	padding-top: 40px;
+	padding-bottom: 8px;
 }
 
 .page-title p {
@@ -177,6 +179,7 @@ body {
 	/*border: 1px solid rgb(100, 150, 200);*/
 	min-height: 510px;
 	width: 100%;
+	margin-top: 8px;
 }
 
 .peep-list-title {
@@ -266,12 +269,12 @@ body {
 	font-size: 1.55em;
 	font-weight: 500;
 	font-style: normal;
-	margin-top: 5px;
+	margin-top: 8px;
 }
 
 .sign-up-container, .sign-in-container {
 	/*border: 1px solid rgb(150, 150, 150);*/
-	height: 400px;
+	height: 478px;
 	width: 100%;
 	text-align: -webkit-center;
 	text-align: center;

@@ -27,7 +27,15 @@ get "/" do
 		author = User.select{ |user| user.peeps.include?(peep) }.first.username
 		@peeps << { author: author, time: peep.time, content: peep.content }
 	end
+
 	@peeps.reverse!
+
+	# @peeps.sort_by! { |peep| peep[:author]}
+
+
+
+
+
 	erb :index
 end
 
