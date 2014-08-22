@@ -28,7 +28,7 @@ body {
 
 .welcome-message p {
 	font-size: 1.1em;
-	margin-top: 16px;
+	margin-top: 18px;
 	margin-left: 10px;
 	font-weight: 400;
 }
@@ -44,7 +44,7 @@ body {
 
 .user-message p {
 	font-size: 1.1em;
-	margin-top: 16px;
+	margin-top: 18px;
 	margin-left: 10px;
 	font-weight: 400;
 
@@ -106,18 +106,105 @@ body {
 
 .page-title {
 	width: 100%;
-	height: 109px;
-	margin-bottom: 30px;
+	height: 62px;
+	margin-bottom: 0px;
 	text-align: center;
 	position: fixed;
-	margin-top: 51px;
+	margin-top: 50px;
 	background-color: white;
+	padding-top: 40px;
+	padding-bottom: 8px;
 }
 
 .page-title p {
 	font-size: 2.3em;
 	font-weight: 500;
 	font-style: normal;
+}
+
+
+.selector {
+	/*background-color: rgb(240, 240, 240);*/
+	width: 208px;
+	height: 31px;
+	margin-top: 25px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: -webkit-center;
+	display: block;
+	margin-bottom: 28px;
+}
+
+.cb-enable, .cb-disable, .cb-enable input, .cb-disable input { 
+	background: url(/images/switch.gif) repeat-x;
+	display: block;
+	float: left;
+	width: 118px;
+	height: 30px;
+}
+
+
+.cb-enable input, .cb-disable input { 
+	 line-height: 30px; 
+	 display: block; 
+	 background-repeat: no-repeat; 
+	 font-weight: 600; 
+}
+
+.cb-enable input { 
+	background-position: left -90px; 
+	/*padding: 0 10px; */
+}
+
+.cb-disable input { 
+	background-position: right -180px;
+	padding: 0 0px;
+	font-weight: 600; 
+}
+
+.cb-disable.selected { 
+	background-position: 0 -30px; 
+}
+
+.cb-disable.selected input { 
+	background-position: right -210px; 
+	color: #fff; 
+}
+
+.cb-enable.selected { 
+	background-position: 0 -60px; 
+}
+
+.cb-enable.selected input { 
+	background-position: left -150px;
+	color: #fff;
+}
+
+#selector-date {
+	width: 107px;
+	border-top-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	vertical-align: 3px;
+	font-size: 0.9em;
+	letter-spacing: 0.4px;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+}
+
+#selector-name {
+	width: 101px;
+	border-top-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+	margin-left: -2px;
+	vertical-align: 3px;
+	font-size: 0.9em;
+	letter-spacing: 0.4px;
+    overflow: auto;
+    outline: none;
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
 }
 
 .new-peep-container {
@@ -159,6 +246,10 @@ body {
 	border-color: rgb(170, 170, 170);
 } 
 
+.new-peep-container input {
+	margin-top: 20px;
+}
+
 .wide-spacer {
 	/*border: 1px solid rgb(100, 150, 200);*/
 	background-color: white;
@@ -177,6 +268,7 @@ body {
 	/*border: 1px solid rgb(100, 150, 200);*/
 	min-height: 510px;
 	width: 100%;
+	margin-top: 8px;
 }
 
 .peep-list-title {
@@ -266,12 +358,12 @@ body {
 	font-size: 1.55em;
 	font-weight: 500;
 	font-style: normal;
-	margin-top: 5px;
+	margin-top: 8px;
 }
 
 .sign-up-container, .sign-in-container {
 	/*border: 1px solid rgb(150, 150, 150);*/
-	height: 400px;
+	height: 478px;
 	width: 100%;
 	text-align: -webkit-center;
 	text-align: center;
@@ -441,6 +533,18 @@ body {
   height: 34px;
   margin-left: -25px;
   margin-right: 0px;
+}
+
+.button-selected {
+	color: white !important;
+}
+
+.button-not-selected {
+	background-color: rgb(220, 220, 220) !important;
+}
+
+.button-not-selected:hover {
+	cursor: pointer; 
 }
 
 

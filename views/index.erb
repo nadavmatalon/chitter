@@ -11,6 +11,20 @@
 	<div class="narrow-spacer">
 	</div>
 <% end %>
+
+<div class="selector">
+	<form action="/peep-selector" method="post">
+		<% if session[:selector] == "date" %>
+			<input type="submit" class="button-selected cb-enable selected" id="selector-date" name="selector" value="Date" disabled>
+			<input type="submit" class="button-not-selected cb-disable" id="selector-name" name="selector" value="Name">
+		<% else %>
+			<input type="submit" class="button-not-selected cb-disable" id="selector-date" name="selector" value="Date">
+			<input type="submit" class="button-selected cb-enable selected" id="selector-name" name="selector" value="Name" disabled>
+		<% end %>
+	</form>
+</div>
+
+
 <div class="peep-list-container">
 	<% if !@peeps.empty? %>
 		<div class="peep-list-title">
