@@ -93,7 +93,7 @@ body {
     outline: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
-    /*box-shadow: none;*/
+    box-shadow: none;
 }
 
 .button:hover { 
@@ -127,9 +127,11 @@ body {
 	margin-top: 25px;
 	margin-right: auto;
 	margin-left: auto;
-	text-align: -webkit-center;
 	display: block;
 	margin-bottom: 28px;
+	text-align: center;
+	text-align: -moz-center;
+	text-align: -webkit-center;
 }
 
 .switch {
@@ -511,4 +513,3 @@ body {
 #update-div {
 	margin-bottom: 5px;
 }
-
