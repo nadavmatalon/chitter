@@ -27,7 +27,7 @@ get "/" do
 	session[:user_id] ||= nil	
 	session[:selector] ||= "date"
 	session[:user_id].nil? ? session[:welcome_message] = "Welcome Guest" : session[:welcome_message] = "Welcome #{current_user.username}"
-	session[:user_message] = "Please sign-up or sign-in to post peeps" if session[:user_id].nil?
+	session[:user_message] ||= "Please sign-up or sign-in to post peeps" if session[:user_id].nil?
 	map_peeps
 	erb :index
 end
@@ -43,7 +43,7 @@ get "/peep-selector" do
 end
 
 post "/home" do
-	session[:user_message] = ""	
+	session[:user_message] = nil	
 	redirect "/"
 end
 
@@ -59,6 +59,7 @@ end
 
 post "/sign-out" do
 	session[:user_id] = nil
+	session[:user_message] = nil
 	session[:selector] = "date"
 	redirect "/"
 end
@@ -83,21 +84,17 @@ post "/sign-up-user" do
 end
 
 post "/sign-in-user" do
-	if (params[:email] != "") && (params[:password] != "")
+	if (params[:email] != "") || (params[:password] != "")
 		email, password = params[:email], params[:password]
 		user = User.authenticate(email, password)
 		if user
 			session[:user_id] = user.id
 			session[:user_message] = ""
-			redirect "/"
 		else
 			session[:user_message] = "Sorry, please try again"
-			erb :sign_in
 		end
-	else
-		session[:user_message] = "Sorry, please try again"
-		erb :sign_in
 	end
+	redirect "/"
 end
 
 post "/add_peep" do

@@ -34,4 +34,6 @@ group :development, :test do
 	gem "shotgun"
 	# https://github.com/cldwalker/debugger
 	gem "debugger"
+   	# https://github.com/rspec/rspec-collection_matchers
+    gem 'poltergeist'
 end

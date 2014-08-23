@@ -1,3 +1,6 @@
+
+Capybara.current_driver = :webkit 
+
 describe "Data_Mapper" do
 
 	context "Demonstration of how DataMapper works" do
@@ -20,5 +23,8 @@ describe "Data_Mapper" do
 		end	
 	end
 end
+
+Capybara.use_default_driver     
+
 
 
