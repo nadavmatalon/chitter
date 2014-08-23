@@ -15,9 +15,10 @@
 		</div>
 		<div class="nav-bar-button">
 			<% if session[:user_id].nil? %>
-				<form action="/sign-in" method="post">
-					<input type="submit" class="button" id="sign-in" value="Sign in">
-				</form>	
+			  	<div class="sign-in-button-container">
+					<input type="submit" class="button" id="sign-in-window" value="Sign in">
+			    </div>
+				<%= erb(:"/partials/sign-in-box", layout: false) %>
 			<% else %>
 				<form action="/sign-out" method="post">
 					<input type="submit" class="button" id="sign-out" value="Sign out">
