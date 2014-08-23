@@ -1,4 +1,5 @@
 require "sinatra"
+require 'sinatra/partial'
 require "data_mapper"
 require "./lib/user.rb"
 require "./lib/peep.rb"
@@ -12,33 +13,37 @@ DataMapper.auto_upgrade!
 
 set :views, Proc.new {File.join(root, '..', "views")}
 set :public_folder, Proc.new {File.join(root, '..', "public")}
+set :partial_template_engine, :erb
+set :session_secret, "information"
 
 enable :sessions
 
-set :session_secret, "information"
 
+get '/update' do
+   Time.now.to_s  
+end
 
 get "/" do
 	session[:user_id] ||= nil	
 	session[:selector] ||= "date"
 	session[:user_id].nil? ? session[:welcome_message] = "Welcome Guest" : session[:welcome_message] = "Welcome #{current_user.username}"
 	session[:user_message] = "Please sign-up or sign-in to post peeps" if session[:user_id].nil?
-	@peeps = []
-	Peep.all.map do |peep|
-		author = User.select{ |user| user.peeps.include?(peep) }.first.username
-		@peeps << { id: -peep.id, author: author, time: peep.time, content: peep.content }
-	end
-	session[:selector] == "date" ? @peeps.reverse! : @peeps.sort_by! {|peep| [peep[:author], peep[:id]] }
+	map_peeps
 	erb :index
 end
 
 post "/peep-selector" do
 	session[:selector] = params[:selector].downcase
+	map_peeps
+	erb :index
+end
+
+get "/peep-selector" do
 	redirect "/"
 end
 
 post "/home" do
-	session[:user_message] = ""
+	session[:user_message] = ""	
 	redirect "/"
 end
 
@@ -111,4 +116,13 @@ private
 
 def current_user    
 	@current_user ||= User.get(session[:user_id]) if session[:user_id]
+end
+
+def map_peeps
+	@peeps = []
+	Peep.all.map do |peep|
+		author = User.select{ |user| user.peeps.include?(peep) }.first.username
+		@peeps << { id: -peep.id, author: author, time: peep.time, content: peep.content }
+	end
+	session[:selector] == "date" ? @peeps.reverse! : @peeps.sort_by! {|peep| [peep[:author].capitalize, peep[:id]] }
 end

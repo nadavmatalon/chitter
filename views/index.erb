@@ -11,7 +11,14 @@
 	<div class="narrow-spacer">
 	</div>
 <% end %>
+
 <div class="switch-container">
+
+	<% if false%>
+	<div id='update-div'>
+	</div>
+	<% end %>
+
 	<form action="/peep-selector" method="post">
 		<% if session[:selector] == "date" %>
 			<input type="submit" class="switch_one_on switch switch_on" name="selector" value="Date" disabled>
@@ -22,7 +29,8 @@
 		<% end %>
 	</form>
 </div>
-<div class="peep-list-container">
+
+<div class="peep-list-container" id="peep-list-container">
 	<% if !@peeps.empty? %>
 		<div class="peep-list-title">
 			<p>Peep List</p>
@@ -46,3 +54,4 @@
 		</div>
 	<% end %>
 </div>
+

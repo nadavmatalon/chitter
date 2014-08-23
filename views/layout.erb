@@ -7,108 +7,12 @@
 		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 		<script type="text/javascript" src='/javascript/jquery-2.1.1.min.js' charset="utf-8"></script>
 		<script type="text/javascript" src='/javascript/selector.js' charset="utf-8"></script>
+		<script type="text/javascript" src='/javascript/jquery-functions.js' charset="utf-8"></script>
 	</head>
 	<body>
-		<div class="nav-bar">
-			<div class="welcome-message">
-				<p><%= session[:welcome_message] %></p>
-			</div>
-			<div class="user-message">
-				<p><%= session[:user_message] %></p>
-			</div>
-			<div class="nav-bar-buttons">
-				<div class="nav-bar-button">
-					<% if session[:user_id].nil? %>
-						<form action="/sign-up" method="post">
-							<input type="submit" class="button" id="sign-up" value="Sign up">
-						</form>					
-					<% end %>
-				</div>
-				<div class="nav-bar-button">
-					<% if session[:user_id].nil? %>
-						<form action="/sign-in" method="post">
-							<input type="submit" class="button" id="sign-in" value="Sign in">
-						</form>	
-					<% else %>
-						<form action="/sign-out" method="post">
-							<input type="submit" class="button" id="sign-out" value="Sign out">
-						</form>	
-					<% end %>					
-				</div>
-				<div class="nav-bar-button">
-					<form action="/home" method="post">
-						<input type="submit" class="button" id="home" value="Home">
-					</form>									
-				</div>
-			</div>
-		</div>
-		<div class="page-title">
-			<p>Makers Chitter</p>
-		</div>
+		<%= erb(:"/partials/header", layout: false) %>
 		<%= yield %>
-		<div class="footer-spacer">
-		</div>
-		<div class="footer-container">
-			<div id="powered-by">
-		    	<p>Powered by:</p>
-		    </div>
-		    <div>
-		   		<a href='http://en.wikipedia.org/wiki/Test-driven_development'> 
-					<img src='images/tdd_small.png', class="footer-image-tdd">
-		    	</a>
-		    </div>
-		    <div>
-		   		<a href='https://www.ruby-lang.org/en/'> 
-					<img src="images/ruby_small.png", class="footer-image-ruby">
-		    	</a>
-		    </div>
-		    <div>
-		   		<a href='http://rspec.info'> 
-					<img src="images/rspec_small.png", class="footer-image-rspec">
-		    	</a>
-		    </div>
-		    <div>
-		   		<a href='https://github.com/jnicklas/capybara'> 
-					<img src="images/capybara_small.png", class="footer-image-capybara">
-		    	</a>
-		    </div>
-			<div>
-		    	<a href='http://www.w3schools.com/html/html5_intro.asp'> 
-					<img src="images/html5_small.png", class="footer-image-html5">
-		    	</a>
-		    </div>	
-		    <div>
-		    	<a href='http://www.w3.org/TR/2001/WD-css3-roadmap-20010523'>
-		        	<img src="images/css3_small.png", class="footer-image-css3">
-		    	</a>
-		    </div>
-		    <div>
-		    	<a href='http://www.sinatrarb.com/'>
-		        	<img src="images/sinatra_small.png", class="footer-image-sinatra">
-		    	</a>
-		    </div>
-		   	<div>
-		   		<a href='http://www.postgresql.org/'> 
-					<img src="images/postgresql_small.png", class="footer-image-postgresql">
-		    	</a>
-		    </div>
-		    <div>
-		   		<a href='https://www.heroku.com'> 
-		       		<img src="images/heroku_small.png", class="footer-image-heroku">
-		    	</a>
-		    </div>
-		    <div>
-		    	<a href='https://github.com/nadavmatalon/chitter'>
-		       		<img src="images/github_small.png", class="footer-image-github">
-		    	</a>
-		    </div>
-		    <div id="created-by">
-		    	<span>Created by:</span>
-				<a href='https://github.com/nadavmatalon'> 
-					<img src="images/nmqr_small.png", class="footer-image-nmqr">
-				</a>		    	
-		    </div>
-		</div>
+		<%= erb(:"/partials/footer", layout: false) %>
 	</body>
 </html>
 

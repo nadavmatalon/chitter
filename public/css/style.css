@@ -3,7 +3,6 @@ body {
 	width: 100%;
 	margin: 0px;
 	font-family: "Skolar Bold","Segoe UI","Roboto Slab","Droid Serif",AvenirNext,"Avenir",Georgia,"Times New Roman",Times,serif;
-
 }
 
 .nav-bar {
@@ -153,7 +152,7 @@ body {
 }
 
 .switch_off {
-	color: black !important;
+	color: black
 }
 
 .switch_one_on {
@@ -507,5 +506,9 @@ body {
 	height: 34px;
 	margin-left: -25px;
 	margin-right: 0px;
+}
+
+#update-div {
+	margin-bottom: 5px;
 }
 
