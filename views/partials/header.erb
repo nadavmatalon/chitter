@@ -1,0 +1,36 @@
+<div class="nav-bar">
+	<div class="welcome-message">
+		<p><%= session[:welcome_message] %></p>
+	</div>
+	<div class="user-message">
+		<p><%= session[:user_message] %></p>
+	</div>
+	<div class="nav-bar-buttons">
+		<div class="nav-bar-button">
+			<% if session[:user_id].nil? %>
+				<form action="/sign-up" method="post">
+					<input type="submit" class="button" id="sign-up" value="Sign up">
+				</form>					
+			<% end %>
+		</div>
+		<div class="nav-bar-button">
+			<% if session[:user_id].nil? %>
+				<form action="/sign-in" method="post">
+					<input type="submit" class="button" id="sign-in" value="Sign in">
+				</form>	
+			<% else %>
+				<form action="/sign-out" method="post">
+					<input type="submit" class="button" id="sign-out" value="Sign out">
+				</form>	
+			<% end %>					
+		</div>
+		<div class="nav-bar-button">
+			<form action="/home" method="post">
+				<input type="submit" class="button" id="home" value="Home">
+			</form>									
+		</div>
+	</div>
+</div>
+<div class="page-title">
+	<p>Makers Chitter</p>
+</div>
