@@ -48,9 +48,13 @@ The core of <strong>Makers Chitter</strong> was written over a weekend as an exe
 in building an instant messaging web app for students 
 at [Makers Mcademy](http://www.makersacademy.com/).
 
-Later on parts of the app were re-written (mainly the front-side) to give it
+__Update (21.8.14):__ parts of the app were re-written (mainly the front-side) to give it
 a nicer look, and a toggle-button was added which enables to display the list 
 of peeps either according to the date of posting or the author's name.
+
+__Update (23.8.14):__ added a new jQuery-based popup window in the main page for the 
+sign in functionality (replacing the previous separate sign in page). Updated feature 
+tests to accommodate the changes. 
 
 In a nutshell, the guidlines for building the app were:
 
