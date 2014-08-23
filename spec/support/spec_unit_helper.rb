@@ -6,6 +6,6 @@ def create_user (name = "Test User", username = "TU", email = "tu@email.com",
 				peeps: peeps)
 end
 
-def create_peep (time = "14:00", content = "The thoughts of Test User")
-	Peep.create(time: time, content: content)
+def create_peep (time = "14:00", content = "The thoughts of Test User", user_id = 1)
+	Peep.create(time: time, content: content, user_id: user_id)
 end
