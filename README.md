@@ -96,7 +96,7 @@ A summary of the guidlines for building the app were:
 
 A live version of the app can be found at:
 
-http://makers-chitter.herokuapp.com
+[Makers Chitter on Heroku](http://makers-chitter.herokuapp.com)
 
 As I'm using Heroku's free hosting service, the app may take a bit of time to upload<br/>
 (Heroku's giros take time to wake up...), so please be patient.
