@@ -1,9 +1,13 @@
 #Makers Chitter
 
+##Makers Academy | Week 7 | Challenge
+
+
 ##Table of Contents
 
 * [Screenshots](#screenshots)
 * [General Description](#general-description)
+* [Guidelines](#guidelines)
 * [See it Live on Heroku](#see-it-live-on-heroku)
 * [Browsers](#browsers)
 * [Testing](#testing)
@@ -43,30 +47,13 @@
 
 
 ##General Description
+
+This repo contians my answer to __Week 7 Friday Challange__ as part 
+of the course at [Makers Academy](http://www.makersacademy.com/).
  
-The core of <strong>Makers Chitter</strong> was written over a weekend as an exercise 
-in building an instant messaging web app for students 
+The core of <strong>Makers Chitter</strong> was written over a weekend as 
+an exercise in building an instant messaging web app for students 
 at [Makers Mcademy](http://www.makersacademy.com/).
-
-__Update (21.8.14):__ parts of the app were re-written (mainly the front-side) to give it
-a nicer look, and a toggle-button was added which enables to display the list 
-of peeps either according to the date of posting or the author's name.
-
-__Update (23.8.14):__ added a new jQuery-based popup window in the main page for the 
-sign in functionality (replacing the previous separate sign in page). Updated feature 
-tests to accommodate the changes. 
-
-In a nutshell, the guidlines for building the app were:
-
-* The app allows users who visit the website to view the various 'peeps' which were 
-perviously posted.
-
-* In order to post peeps, however, users must register with the app.
-
-* Details of registered users and all their peeps are stored in a Postgresql database.
-
-* In terms of registration criteria, email addresses and usernames must be unique.
-
 
 The app was written in [Ruby](https://www.ruby-lang.org/en/) according 
 to [TDD](http://en.wikipedia.org/wiki/Test-driven_development).
@@ -74,11 +61,35 @@ to [TDD](http://en.wikipedia.org/wiki/Test-driven_development).
 Tests were generated with [Rspec](http://rspec.info) 
 &amp; [Capybara](https://github.com/jnicklas/capybara).
 
-It was built within the [Sinatra](http://www.sinatrarb.com/) framework and 
-utilizes [Datamapper](http://datamapper.org/) to access the database.
+It was built with the [Sinatra](http://www.sinatrarb.com/) framework and 
+utilizes [Datamapper](http://datamapper.org/) to access a 
+[PostgreSQL](http://www.postgresql.org/) database.
 
 It also implements [bcrypt](https://github.com/codahale/bcrypt-ruby) to securly store only 
 the digests of users' passwords.
+
+__Update (21.8.14):__ parts of the app were re-written (mainly the front-side) 
+to give it a nicer look, and a toggle-button was added which enables to display 
+the list of peeps either according to the date of posting or the author's name.
+
+__Update (23.8.14):__ added a new jQuery-based popup window in the main page for the 
+sign in functionality (replacing the previous separate sign in page). Updated feature 
+tests to accommodate the changes. 
+
+
+##Guidelines
+
+A summary of the guidlines for building the app were:
+
+* The app allows users who visit the website to view the various 'peeps' which 
+  were perviously posted.
+
+* In order to post peeps, however, users must register with the app.
+
+* Details of registered users and all their peeps are stored in a 
+  [PostgreSQL](http://www.postgresql.org/) database.
+
+* In terms of registration criteria, email addresses and usernames must be unique.
 
 
 ##See it Live on Heroku
@@ -100,7 +111,7 @@ As I'm using Heroku's free hosting service, the app may take a bit of time to up
 * __Mozilla Firefox__ (31.0)
 * __Apple Safari__ (7.0.5)
 
-In case the app doesn't look right in __Safari__ (content is showing but without any css styling), 
+If the app doesn't look right in __Safari__ (content is showing but without any css styling), 
 this may be due to the security settings. To solve this, under 'Perferences > privacy settings', 
 check if 'Block cookies' is set to 'Always' and if it does change it to 'from third parties 
 and advertisers' (that's the default). In addition, click the 'Remove all website data' 
