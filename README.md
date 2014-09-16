@@ -72,7 +72,7 @@ The app was written in [Ruby](https://www.ruby-lang.org/en/) according
 to [TDD](http://en.wikipedia.org/wiki/Test-driven_development).
 
 Tests were generated with [Rspec](http://rspec.info) 
-& [Capybara](https://github.com/jnicklas/capybara).
+&amp; [Capybara](https://github.com/jnicklas/capybara).
 
 It was built within the [Sinatra](http://www.sinatrarb.com/) framework and 
 utilizes [Datamapper](http://datamapper.org/) to access the database.
@@ -107,9 +107,9 @@ and advertisers' (that's the default). In addition, click the 'Remove all websit
 to clear the session cookies. After that, it should work as it intended.
 
 
-##  Testing
+##Testing
 
-Tests were written with [Rspec](http://rspec.info) (2.14.8) & 
+Tests were written with [Rspec](http://rspec.info) (2.14.8) &amp; 
 [Capybara](https://github.com/jnicklas/capybara) (2.3.0).
 
 The tests cover both back-end logic and front-end functionality.
@@ -117,10 +117,11 @@ The tests cover both back-end logic and front-end functionality.
 To run the tests in terminal: 
 
 ```bash
-$ rspec
+$> cd chitter
+$> rspec
 ```
 
-##  License
+##License
 
 <p>Released under the <a href="http://www.opensource.org/licenses/MIT">MIT license</a>.</p>
 
