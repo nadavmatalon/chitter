@@ -18,8 +18,6 @@ gem "rack-flash3"
 gem "thin"
 # https://github.com/ged/ruby-pg
 gem "pg"
-# https://github.com/SFEley/sinatra-flash
-# gem "sinatra-flash"
 
 group :development, :test do
 	# https://github.com/rspec/rspec 

@@ -16,8 +16,8 @@ $(document).ready(function() {
 
 	$('#close-button, #mask').on('click', function() {
 		$('.sign-in-popup').fadeOut(200);
-		$('#mask').removeClass('showing'); 
-		$('#mask').addClass('hiding'); 
+		$('#mask').removeClass('showing');
+		$('#mask').addClass('hiding');
 		return false;
 	});
 });

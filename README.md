@@ -10,6 +10,7 @@
 * [General Description](#general-description)
 * [Guidelines](#guidelines)
 * [See it Live on Heroku](#see-it-live-on-heroku)
+* [How to Install](#how-to-install)
 * [Browsers](#browsers)
 * [Testing](#testing)
 * [License](#license)
@@ -101,6 +102,23 @@ A live version of the app can be found at:
 
 As I'm using Heroku's free hosting service, the app may take a bit of time to upload<br/>
 (Heroku's giros take time to wake up...), so please be patient.
+
+
+##How to Install
+
+To install the apo locally, clone the repo and run:
+
+```bash
+$> ch chitter
+$> bundle instsll
+$> shotgun
+```
+
+Then open the browser of your choice and go to:
+
+```
+http://localhost:9393/
+```
 
 
 ##Browsers
