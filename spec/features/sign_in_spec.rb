@@ -10,15 +10,6 @@ describe "Users", type: :feature, js: true do
 		end
 	end
 
-	# scenario "can navigate to the 'sign in' page" do
-	# 	click_button "Sign in"
-	# 	expect(page.status_code).to eq 200
-	# 	expect(page.current_path).to eq "/sign-in"
-	# 	within ".sign-in-title" do
-	# 		expect(page).to have_content "Sign in"
-	# 	end
-	# end
-
 	it "can close the 'sign in' box on the page" do
 		click_button "Sign in"
 		within ".sign-in-popup" do
@@ -27,24 +18,11 @@ describe "Users", type: :feature, js: true do
 		end
 	end
 
-# 	scenario "can navigate back to 'home' page" do
-# 		click_button "Sign in"
-# 		click_button "Home"
-# 		expect(page.status_code).to eq 200
-# 		expect(page.current_path).to eq "/"
-# 	end
-
 	it "can sign in by entering an email and a passowrd" do
 		register_user
 		sign_in
 		expect(page).to have_content "Welcome TU"
 	end
-
-	# scenario "are automatically redirected to the homepage after signing-in" do
-	# 	register_user
-	#	sign_in
-	# 	expect(page.current_path).to eq "/"
-	# end
 
 	it "are asked to try again if email is incorrect" do		
 		register_user
