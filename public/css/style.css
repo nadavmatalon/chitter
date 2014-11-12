@@ -69,7 +69,6 @@ body {
 }
 
 .nav-bar-buttons {
-	/*border: 1px solid rgb(150, 150, 150);*/
 	display: inline-block;
 	float: right;
 	width: 330px;
@@ -77,7 +76,6 @@ body {
 } 
 
 .nav-bar-button {
-	/*border: 1px solid rgb(100, 150, 200);*/
 	display: inline-block;
 	width: 110px;
 	height: 45px;
@@ -319,7 +317,6 @@ body {
 	letter-spacing: 0.5px;
   }
 
-
 .switch_two_off {
 	background: url(/images/switch_two_off.jpg);
 	margin-left: -1px;
@@ -377,28 +374,24 @@ body {
 }
 
 .wide-spacer {
-	/*border: 1px solid rgb(100, 150, 200);*/
 	background-color: white;
 	height: 305px;
 	width: 100%;
 }
 
 .narrow-spacer {
-	/*border: 1px solid rgb(100, 150, 200);*/
 	background-color: white;
 	height: 150px;
 	width: 100%;
 }
 
 .peep-list-container {
-	/*border: 1px solid rgb(100, 150, 200);*/
 	min-height: 510px;
 	width: 100%;
 	margin-top: 8px;
 }
 
 .peep-list-title {
-	/*border: 1px solid rgb(150, 150, 150);*/
 	height: 44px;
 	width: 100%;
 	text-align: center;
@@ -479,7 +472,6 @@ body {
 }
 
 .sign-up-title, .sign-in-title {
-	/*border: 1px solid rgb(150, 150, 150);*/
 	height: 64px;
 	width: 100%;
 	text-align: center;
@@ -495,7 +487,6 @@ body {
 }
 
 .sign-up-container, .sign-in-container {
-	/*border: 1px solid rgb(150, 150, 150);*/
 	height: 478px;
 	width: 100%;
 	text-align: center;
@@ -524,14 +515,12 @@ body {
 }
 
 .footer-spacer {
-	/*border: 1px solid rgb(100, 150, 200);*/
 	background-color: white;
 	height: 0px;
 	width: 100%;
 }
 
 .footer-sign-in-spacer, .footer-sign-up-spacer {
-	/*border: 1px solid rgb(100, 150, 200);*/
 	background-color: white;
 	height: 45px;
 	width: 100%;

@@ -1,20 +1,5 @@
 $(document).ready(function() {
 
-	// $.ajaxSetup ({  
-	//  cache: false  
-	// });
-
-	// $(document).ready(function() { 
-	// 	update_time();
-	// });
-
-	// function update_time() {
-	// 	$.get("/update", function(data) {
-	// 		$("#update-div").html(data);
-	// 		window.setTimeout(update_time, 2000);
-	// 	}, 'text');
-	// }
-
 	$('#sign-in-window').click(function() {		
 		var signInBox = $('.sign-in-popup');
 		$(signInBox).fadeIn(200);
@@ -28,10 +13,12 @@ $(document).ready(function() {
 		$('#mask').addClass('showing');		
 		return false;
 	});
+
 	$('#close-button, #mask').on('click', function() { 
-	  $('.sign-in-popup').fadeOut(200);
-	  $('#mask').removeClass('showing'); 
-	  $('#mask').addClass('hiding'); 
-	return false;
+		$('.sign-in-popup').fadeOut(200);
+		$('#mask').removeClass('showing'); 
+		$('#mask').addClass('hiding'); 
+		return false;
 	});
 });
+
