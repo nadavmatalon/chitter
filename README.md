@@ -2,6 +2,7 @@
 
 ##Makers Academy | Week 7 | Challenge
 
+[![Code Climate](https://codeclimate.com/github/nadavmatalon/chitter/badges/gpa.svg)](https://codeclimate.com/github/nadavmatalon/chitter)
 
 ##Table of Contents
 
