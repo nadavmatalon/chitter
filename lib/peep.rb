@@ -8,8 +8,11 @@ class Peep
 	belongs_to :user
 
 	property :id, Serial
-	property :time, String, :default => Proc.new {|r, p| "#{TimeStamp.now}"}
+	property :time, String, default: Proc.new { "#{TimeStamp.now}"}
 	property :content, Text, required: true, message: "A peep must have content"
 
+	def find_author
+		User.get(user_id).username
+	end
 end
 

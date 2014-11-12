@@ -16,11 +16,10 @@ class User
 	attr_reader :password
 	attr_accessor :password_confirmation
 
-	validates_uniqueness_of :username  #not needed when using data_mapper
-	validates_uniqueness_of :email  #not needed when using data_mapper
+	validates_uniqueness_of :username
+	validates_uniqueness_of :email
 
 	validates_confirmation_of :password
-	# validates_confirmation_of :password, :message => "Sorry, your passwords don't match"
 
 	def password=(password)
 		@password = password
@@ -29,12 +28,7 @@ class User
 
 	def self.authenticate(email, password)
 		user = first(email: email)
-		if user && BCrypt::Password.new(user.password_digest) == password
-			user
-		else
-			nil
-		end
+		(user && BCrypt::Password.new(user.password_digest) == password) ? user : nil	
 	end
-
 end
 
